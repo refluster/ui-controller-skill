@@ -5,9 +5,15 @@ const port = 3000;
 
 app.use(express.static('public'));
 
-//app.get('/', (req, res) => {
-//  res.sendFile(__dirname + '/index.html')
-//});
+app.get('/test1', (req, res) => {
+	console.log('test1');
+	res.send('');
+});
+
+app.get('/test2', (req, res) => {
+	console.log('test2');
+	res.send('');
+});
 
 app.listen(port, error => {
 	if (error) {
