@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express')
 const app = new (express)();
-const port = 3000;
+const port = 8100;
 
 app.use(express.static('public'));
 
