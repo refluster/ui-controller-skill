@@ -17,7 +17,7 @@ var handlers = {
 	},
     'SayHello': function () {
         console.log('sayHellow called')
-		sendMessage2(function() {
+		sendMessage(function() {
 			this.emit(':tell', 'Hello World!');
 		}.bind(this));
 		console.log('sayHellow called 2')
@@ -25,19 +25,6 @@ var handlers = {
 };
 
 function sendMessage(callback) {
-	http.get("http://52.198.86.179:8100/test1", function(res) {
-		console.log("http.get response: " + res.statusCode);
-		res.on("data", function(chunk) {
-			console.log('http.get success')
-			callback();
-		});
-	}).on('error', function(e) {
-		console.log('http.get error')
-		callback();
-	});
-}
-
-function sendMessage2(callback) {
 	let postData = {
 		"name": "n0bisuke",
 		"comment": "nemui"
