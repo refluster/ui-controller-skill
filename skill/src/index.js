@@ -1,59 +1,38 @@
 'use strict';
 var Alexa = require("alexa-sdk");
+var http = require ('http');
 
 exports.handler = function(event, context, callback) {
-    var alexa = Alexa.handler(event, context);
-    alexa.registerHandlers(handlers);
-    alexa.execute();
+	var alexa = Alexa.handler(event, context);
+	alexa.registerHandlers(handlers);
+	alexa.execute();
 };
 
 var handlers = {
-    'LaunchRequest': function () {
-        this.emit('SayHello');
-    },
-    'HelloWorldIntent': function () {
-        this.emit('SayHello')
-    },
+	'LaunchRequest': function () {
+		this.emit('SayHello');
+	},
+	'HelloWorldIntent': function () {
+		this.emit('SayHello')
+	},
     'SayHello': function () {
-        this.emit(':tell', 'Hello World!');
-    }
+        console.log('sayHellow called')
+		sendMessage(function() {
+			this.emit(':tell', 'Hello World!');
+		}.bind(this));
+		console.log('sayHellow called 2')
+	}
 };
 
-//////////////////////////////
-
-function sendMessage() {
-	var postData = querystring.stringify({
-		'msg' : 'Hello World!'
-	});
-
-	var options = {
-		hostname: 'www.google.com',
-		port: 80,
-		path: '/upload',
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-			'Content-Length': Buffer.byteLength(postData)
-		}
-	};
-
-	var req = http.request(options, (res) => {
-		console.log(`STATUS: ${res.statusCode}`);
-		console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-		res.setEncoding('utf8');
-		res.on('data', (chunk) => {
-			console.log(`BODY: ${chunk}`);
+function sendMessage(callback) {
+	http.get("http://52.198.86.179:8100/test1", function(res) {
+		console.log("http.get response: " + res.statusCode);
+		res.on("data", function(chunk) {
+			console.log('http.get success')
+			callback();
 		});
-		res.on('end', () => {
-			console.log('No more data in response.');
-		});
+	}).on('error', function(e) {
+		console.log('http.get error')
+		callback();
 	});
-
-	req.on('error', (e) => {
-		console.log(`problem with request: ${e.message}`);
-	});
-
-	// write data to request body
-	req.write(postData);
-	req.end();
 }
