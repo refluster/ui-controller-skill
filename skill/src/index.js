@@ -17,7 +17,7 @@ var handlers = {
 	},
     'SayHello': function () {
         console.log('sayHellow called')
-		sendMessage(function() {
+		sendMessage2(function() {
 			this.emit(':tell', 'Hello World!');
 		}.bind(this));
 		console.log('sayHellow called 2')
@@ -35,4 +35,38 @@ function sendMessage(callback) {
 		console.log('http.get error')
 		callback();
 	});
+}
+
+function sendMessage2(callback) {
+	let postData = {
+		"name": "n0bisuke",
+		"comment": "nemui"
+	};
+
+	let postDataStr = JSON.stringify(postData);
+	let options = {
+		host: '52.198.86.179',
+		port: 8100,
+		path: '/test1',
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Content-Length': postDataStr.length
+		}
+	};
+
+	let req = http.request(options, (res) => {
+		console.log('STATUS: ' + res.statusCode);
+		console.log('HEADERS: ' + JSON.stringify(res.headers));
+		res.setEncoding('utf8');
+		res.on('data', (chunk) => {
+			console.log('BODY: ' + chunk);
+			callback();
+		});
+	});
+	req.on('error', (e) => {
+		console.log('problem with request: ' + e.message);
+	});
+	req.write(postDataStr);
+	req.end();	
 }
