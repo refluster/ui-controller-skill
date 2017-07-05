@@ -17,20 +17,15 @@ var handlers = {
 	},
     'SayHello': function () {
         console.log('sayHellow called')
-		sendMessage(function() {
+		sendMessage({page: 'page1'}, function() {
 			this.emit(':tell', 'Hello World!');
 		}.bind(this));
 		console.log('sayHellow called 2')
 	}
 };
 
-function sendMessage(callback) {
-	let postData = {
-		"name": "n0bisuke",
-		"comment": "nemui"
-	};
-
-	let postDataStr = JSON.stringify(postData);
+function sendMessage(data, callback) {
+	let postDataStr = JSON.stringify(data);
 	let options = {
 		host: '52.198.86.179',
 		port: 8100,
