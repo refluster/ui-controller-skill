@@ -7,7 +7,8 @@ app.use(express.static('public'));
 
 app.get('/test1', (req, res) => {
 	console.log('test1');
-	res.send('');
+	res.header("Content-Type", "application/json; charset=utf-8");
+	res.send('[hoge]');
 });
 
 app.get('/test2', (req, res) => {
