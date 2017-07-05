@@ -15,13 +15,23 @@ var handlers = {
 	'HelloWorldIntent': function () {
 		this.emit('SayHello')
 	},
-    'SayHello': function () {
-        console.log('sayHellow called')
+	'SayHello': function () {
+		console.log('sayHello called')
 		sendMessage({page: 'page1'}, function() {
 			this.emit(':tell', 'Hello World!');
 		}.bind(this));
-		console.log('sayHellow called 2')
-	}
+		console.log('sayHello end')
+	},
+	'TestIntent': function () {
+		this.emit('SayTest')
+	},
+	'SayTest': function () {
+		console.log('sayTest called')
+		sendMessage({page: 'page2'}, function() {
+			this.emit(':tell', 'This is test response');
+		}.bind(this));
+		console.log('sayTest end')
+	},
 };
 
 function sendMessage(data, callback) {
