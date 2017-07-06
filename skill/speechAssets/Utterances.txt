@@ -3,3 +3,4 @@ HelloWorldIntent say hello
 HelloWorldIntent say hello world
 TestIntent test
 TestIntent say test
+ShowIntent show {Page}
