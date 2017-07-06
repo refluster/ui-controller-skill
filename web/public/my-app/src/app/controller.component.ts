@@ -15,8 +15,8 @@ export class ControllerComponent {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
 
-	onClick(): Promise<void> {
-		return this.http.post(this.url, JSON.stringify({page: 'page1'}), {headers: this.headers})
+	onClick(page): Promise<void> {
+		return this.http.post(this.url, JSON.stringify({page: page}), {headers: this.headers})
 			.toPromise()
 			.then(() => {})
 			.catch(this.handleError);
