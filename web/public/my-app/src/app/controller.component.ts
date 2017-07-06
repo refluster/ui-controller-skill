@@ -4,11 +4,12 @@ import 'rxjs/add/operator/toPromise';
 
 @Component({
 	selector: 'controller',
-	template: '<div>controhogeller</div><button (click)="onClick()">hoge</button>',
-	styleUrls: [],
+	templateUrl: './controller.component.html',
+	styleUrls: ['./controller.component.css'],
 })
 export class ControllerComponent {
 	url = 'http://localhost:8100/test1';
+	pages = ['page1', 'page2']
 
 	constructor(private http: Http) { }
 
