@@ -4,9 +4,11 @@ const app = new (express)();
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const cors = require('cors');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 const port = 8100;
 
 app.use(express.static('public'));
