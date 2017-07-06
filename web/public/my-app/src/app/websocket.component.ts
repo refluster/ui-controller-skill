@@ -15,9 +15,6 @@ export class WebsocketComponent implements OnInit, OnDestroy {
 	constructor(private websocketService: WebsocketService,
 				private router: Router ){}
 
-	onClick(){
-	}
-
 	ngOnInit() {
 		this.websocketService.connect('hoge=hoge');
 		this.connection = this.websocketService.on('pageset').subscribe(data => {
