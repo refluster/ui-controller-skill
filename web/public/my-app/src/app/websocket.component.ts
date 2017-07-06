@@ -20,6 +20,10 @@ export class WebsocketComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.websocketService.connect('hoge=hoge');
+		this.connection = this.websocketService.on('pageset').subscribe(data => {
+			console.log('pageset called', data);
+			this.data = data;
+		});
 		this.connection = this.websocketService.on('emit_name').subscribe(data => {
 			this.data = data;
 		});
