@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { Page1Component } from './page1.component';
 import { Page2Component } from './page2.component';
+import { ControllerComponent } from './controller.component';
 
 const routes: Routes = [
 	{
@@ -11,6 +12,9 @@ const routes: Routes = [
 	}, {
 		path: 'page2',
 		component: Page2Component
+	}, {
+		path: 'controller',
+		component: ControllerComponent
 	}, {
 		path: '',
 		redirectTo: '/page1',

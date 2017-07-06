@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Page1Component } from './page1.component';
 import { Page2Component } from './page2.component';
 import { WebsocketComponent } from './websocket.component';
+import { ControllerComponent } from './controller.component';
 import { HeroService } from './hero.service';
 import { WebsocketService } from './websocket.service';
 
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 		Page1Component,
 		Page2Component,
 		WebsocketComponent,
+		ControllerComponent,
 	],
 	imports: [
 		BrowserModule,
