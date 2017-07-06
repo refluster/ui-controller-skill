@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'app-root',
     template: `
-      <h1>{{title}}</h1>
       <nav>
-        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+        <a routerLink="/page1" routerLinkActive="active">page1</a>
+        <a routerLink="/page2" routerLinkActive="active">page2</a>
       </nav>
       <router-outlet></router-outlet>
     `,
