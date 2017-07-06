@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 
 export class HeroService {
-	getHeroes(): Promise<Hero[]> {
+	getHeroes(): Promise<number[]> {
 		return Promise.resolve({});
 	}
 
-	getHero(id: number): Promise<Hero> {
+	getHero(id: number): Promise<number> {
 		return this.getHeroes()
-			.then(heroes => heroes.find(hero => hero.id === id));
+			.then(heroes => 0);
 	}
 }
