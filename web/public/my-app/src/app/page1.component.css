@@ -1,3 +1,6 @@
 div.page {
-	background-color: yellow;
+	background-color: #F44336;
+}
+div.page, h2 {
+	color: white;
 }
