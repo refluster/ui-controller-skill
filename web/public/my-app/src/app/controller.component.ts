@@ -10,7 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class ControllerComponent {
 	url = 'http://52.198.86.179:8100/test1';
 	//url = 'http://localhost:8100/test1';
-	pages = ['page1', 'page2']
+	pages = ['page1', 'page2', 'page3', 'page4']
 
 	constructor(private http: Http) { }
 

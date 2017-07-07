@@ -5,7 +5,8 @@ import * as io from 'socket.io-client';
 @Injectable()
 
 export class WebsocketService {
-	private url = 'http://localhost:8100';
+	private url = 'http://52.198.86.179:8100';
+	//private url = 'http://localhost:8100';
 	private socket;
 
 	constructor(){}
