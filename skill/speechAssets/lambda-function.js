@@ -37,7 +37,7 @@ var handlers = {
 		let targetPage = this.event.request.intent.slots.Page.value
 		console.log(targetPage);
 		sendMessage({page: targetPage}, function() {
-			this.emit(':tell', 'okay');
+			this.emit(':tell', 'displaying ' + this.targetPage);
 		}.bind(this));
 	}
 };
