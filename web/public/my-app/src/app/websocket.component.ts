@@ -1,31 +1,25 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WebsocketService }       from './websocket.service';
+import { Router } from '@angular/router';
 
 @Component({
 	providers: [WebsocketService],
 	selector: 'websocket',
-	template: '<div>websocket.component</div><button (click)="onClick()">hoge</button>',
+	template: '',
 	styleUrls: [],
 })
+
 export class WebsocketComponent implements OnInit, OnDestroy {
 	connection;
-	data;
 
-	constructor( private websocketService: WebsocketService ){}
-
-	onClick(){
-		this.websocketService.emit('on_name', this.data);
-		this.data = '';
-	}
+	constructor(private websocketService: WebsocketService,
+				private router: Router ){}
 
 	ngOnInit() {
 		this.websocketService.connect('hoge=hoge');
 		this.connection = this.websocketService.on('pageset').subscribe(data => {
 			console.log('pageset called', data);
-			this.data = data;
-		});
-		this.connection = this.websocketService.on('emit_name').subscribe(data => {
-			this.data = data;
+			this.router.navigateByUrl(data['page']);
 		});
 	}
 
