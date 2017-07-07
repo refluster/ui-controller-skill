@@ -26,3 +26,12 @@ nav a:hover {
 nav a.active {
 	color: #039be5;
 }
+.selected {
+	background-color: #CFD8DC !important;
+	color: white;
+}
+div.page {
+	height: 480px;
+	line-height: 480px;
+	text-align: center;
+}
