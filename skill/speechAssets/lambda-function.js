@@ -34,8 +34,12 @@ var handlers = {
 	},
 	'ShowIntent': function () {
 		console.log(this.event.request.intent.slots);
-		console.log(this.event.request.intent.slots.page);
-	},
+		let targetPage = this.event.request.intent.slots.Page.value
+		console.log(targetPage);
+		sendMessage({page: targetPage}, function() {
+			this.emit(':tell', 'okay');
+		}.bind(this));
+	}
 };
 
 function sendMessage(data, callback) {
