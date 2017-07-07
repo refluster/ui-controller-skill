@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroService } from './hero.service';
 
 @Component({
 	selector: 'page2',
@@ -8,8 +7,5 @@ import { HeroService } from './hero.service';
 })
 
 export class Page2Component implements OnInit {
-	constructor(private heroService: HeroService) {}
-
-	ngOnInit(): void {
-	}
+	ngOnInit(): void {	}
 }

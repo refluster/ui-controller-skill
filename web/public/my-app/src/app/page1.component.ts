@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HeroService } from './hero.service';
 import { Router } from '@angular/router';
 import { OnInit } from '@angular/core';
 
@@ -10,10 +9,5 @@ import { OnInit } from '@angular/core';
 })
 
 export class Page1Component implements OnInit {
-	constructor(
-		private router: Router,
-		private heroService: HeroService) { }
-
-	ngOnInit(): void {
-	}
+	ngOnInit(): void {	}
 }
