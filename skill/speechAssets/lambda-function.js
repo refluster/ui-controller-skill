@@ -10,9 +10,11 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
 	'LaunchRequest': function () {
+	    console.log('============ LaunchRequest ===========')
 		this.emit('SayHello');
 	},
 	'HelloWorldIntent': function () {
+	    console.log('============ HelloWorldIntent ===========')
 		this.emit('SayHello')
 	},
     'SayHello': function () {
@@ -23,6 +25,7 @@ var handlers = {
 		console.log('sayHello end')
 	},
 	'TestIntent': function () {
+	    console.log('============ TestIntent ===========')
 		this.emit('SayTest')
 	},
     'SayTest': function () {
@@ -33,11 +36,18 @@ var handlers = {
 		console.log('sayTest end')
 	},
 	'ShowIntent': function () {
-		console.log(this.event.request.intent.slots);
-		let targetPage = this.event.request.intent.slots.Page.value
-		console.log(targetPage);
+	    let pageList = {'title': 'page1', 'contents': 'page2'};
+	    console.log('============ ShowIntent ===========')
+	    let slotWord = this.event.request.intent.slots.Page.value;
+		console.log('slotWord: ' + slotWord);
+		if (!(slotWord in pageList)) {
+			this.emit(':tell', 'unable to show unknown page, ' + slotWord);
+			return;
+		}
+		let targetPage = pageList[slotWord];
+		console.log('target: ' + targetPage);
 		sendMessage({page: targetPage}, function() {
-			this.emit(':tell', 'displaying ' + this.targetPage);
+			this.emit(':tell', 'displaying ' + targetPage);
 		}.bind(this));
 	}
 };
