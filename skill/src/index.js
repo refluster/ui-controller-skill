@@ -10,28 +10,46 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
 	'LaunchRequest': function () {
+	    console.log('============ LaunchRequest ===========')
 		this.emit('SayHello');
 	},
 	'HelloWorldIntent': function () {
+	    console.log('============ HelloWorldIntent ===========')
 		this.emit('SayHello')
 	},
-	'SayHello': function () {
-		console.log('sayHello called')
+    'SayHello': function () {
+        console.log('sayHello called')
 		sendMessage({page: 'page1'}, function() {
 			this.emit(':tell', 'Hello World!');
 		}.bind(this));
 		console.log('sayHello end')
 	},
 	'TestIntent': function () {
+	    console.log('============ TestIntent ===========')
 		this.emit('SayTest')
 	},
-	'SayTest': function () {
-		console.log('sayTest called')
+    'SayTest': function () {
+        console.log('sayTest called')
 		sendMessage({page: 'page2'}, function() {
 			this.emit(':tell', 'This is test response');
 		}.bind(this));
 		console.log('sayTest end')
 	},
+	'ShowIntent': function () {
+	    let pageList = {'title': 'page1', 'contents': 'page2'};
+	    console.log('============ ShowIntent ===========')
+	    let slotWord = this.event.request.intent.slots.Page.value;
+		console.log('slotWord: ' + slotWord);
+		if (!(slotWord in pageList)) {
+			this.emit(':tell', 'unable to show unknown page, ' + slotWord);
+			return;
+		}
+		let targetPage = pageList[slotWord];
+		console.log('target: ' + targetPage);
+		sendMessage({page: targetPage}, function() {
+			this.emit(':tell', 'displaying ' + targetPage);
+		}.bind(this));
+	}
 };
 
 function sendMessage(data, callback) {
