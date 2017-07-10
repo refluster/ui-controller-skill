@@ -11,19 +11,24 @@ exports.handler = function(event, context, callback) {
 var handlers = {
 	'LaunchRequest': function () {
 		console.log('============ [initial] ===========')
-		console.log('hello called')
 		sendMessage({page: 'page1'}, function() {
 			this.emit(':ask', 'The train is behind the schedule. You can select 3 alternative routes.');
 		}.bind(this));
-		console.log('hello end')
+		console.log('===== [initial] end')
 	},
 	'RouteIntent': function() {
 		console.log('============ Route ===========')
-		console.log('hello called')
 		sendMessage({page: 'page1'}, function() {
 			this.emit(':ask', 'Please leave home within 2 minutes.');
 		}.bind(this));
-		console.log('hello end')
+		console.log('===== Route end')
+	},
+	'LeaveIntent': function() {
+		console.log('============ Leave ===========')
+		sendMessage({page: 'page1'}, function() {
+			this.emit(':tell', 'Okay. Turning off the light and air conditioner in a minute. See you later.');
+		}.bind(this));
+		console.log('===== Leave end')
 	},
 	'ShowIntent': function () {
 	    let pageList = {'title': 'page1', 'contents': 'page2'};
