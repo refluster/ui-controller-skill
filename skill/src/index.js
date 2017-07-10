@@ -10,30 +10,12 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
 	'LaunchRequest': function () {
-	    console.log('============ LaunchRequest ===========')
-		this.emit('SayHello');
-	},
-	'HelloWorldIntent': function () {
-	    console.log('============ HelloWorldIntent ===========')
-		this.emit('SayHello')
-	},
-    'SayHello': function () {
-        console.log('sayHello called')
+		console.log('============ Hello ===========')
+		console.log('hello called')
 		sendMessage({page: 'page1'}, function() {
-			this.emit(':tell', 'Hello World!');
+			this.emit(':tell', 'The train is behind the schedule. You can select 3 alternative routes.');
 		}.bind(this));
-		console.log('sayHello end')
-	},
-	'TestIntent': function () {
-	    console.log('============ TestIntent ===========')
-		this.emit('SayTest')
-	},
-    'SayTest': function () {
-        console.log('sayTest called')
-		sendMessage({page: 'page2'}, function() {
-			this.emit(':tell', 'This is test response');
-		}.bind(this));
-		console.log('sayTest end')
+		console.log('hello end')
 	},
 	'ShowIntent': function () {
 	    let pageList = {'title': 'page1', 'contents': 'page2'};
@@ -41,8 +23,8 @@ var handlers = {
 	    let slotWord = this.event.request.intent.slots.Page.value;
 		console.log('slotWord: ' + slotWord);
 		if (!(slotWord in pageList)) {
-			this.emit(':tell', 'unable to show unknown page, ' + slotWord);
-			return;
+   			this.emit(':tell', 'unable to show unknown page, ' + slotWord);
+   			return;
 		}
 		let targetPage = pageList[slotWord];
 		console.log('target: ' + targetPage);
