@@ -10,16 +10,24 @@ exports.handler = function(event, context, callback) {
 
 var handlers = {
 	'LaunchRequest': function () {
-		console.log('============ Hello ===========')
+		console.log('============ [initial] ===========')
 		console.log('hello called')
 		sendMessage({page: 'page1'}, function() {
-			this.emit(':tell', 'The train is behind the schedule. You can select 3 alternative routes.');
+			this.emit(':ask', 'The train is behind the schedule. You can select 3 alternative routes.');
+		}.bind(this));
+		console.log('hello end')
+	},
+	'RouteIntent': function() {
+		console.log('============ Route ===========')
+		console.log('hello called')
+		sendMessage({page: 'page1'}, function() {
+			this.emit(':ask', 'Please leave home within 2 minutes.');
 		}.bind(this));
 		console.log('hello end')
 	},
 	'ShowIntent': function () {
 	    let pageList = {'title': 'page1', 'contents': 'page2'};
-	    console.log('============ ShowIntent ===========')
+	    console.log('============ Show ===========')
 	    let slotWord = this.event.request.intent.slots.Page.value;
 		console.log('slotWord: ' + slotWord);
 		if (!(slotWord in pageList)) {
