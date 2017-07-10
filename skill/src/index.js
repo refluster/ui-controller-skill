@@ -11,21 +11,21 @@ exports.handler = function(event, context, callback) {
 var handlers = {
 	'LaunchRequest': function () {
 		console.log('============ [initial] ===========')
-		sendMessage({page: 'page1'}, function() {
+		httppost('/test1', {page: 'page1'}, function() {
 			this.emit(':ask', 'The train is behind the schedule. You can select 3 alternative routes.');
 		}.bind(this));
 		console.log('===== [initial] end')
 	},
 	'RouteIntent': function() {
 		console.log('============ Route ===========')
-		sendMessage({page: 'page1'}, function() {
+		httppost('/test1', {page: 'page1'}, function() {
 			this.emit(':ask', 'Please leave home within 2 minutes.');
 		}.bind(this));
 		console.log('===== Route end')
 	},
 	'LeaveIntent': function() {
 		console.log('============ Leave ===========')
-		sendMessage({page: 'page1'}, function() {
+		httppost('/test1', {page: 'page1'}, function() {
 			this.emit(':tell', 'Okay. Turning off the light and air conditioner in a minute. See you later.');
 		}.bind(this));
 		console.log('===== Leave end')
@@ -42,18 +42,18 @@ var handlers = {
 		//}
 		//let targetPage = pageList[slotWord];
 		console.log('target: ' + targetPage);
-		sendMessage({page: targetPage}, function() {
+		httppost('/test1', {page: targetPage}, function() {
 			this.emit(':tell', 'displaying ' + targetPage);
 		}.bind(this));
 	}
 };
 
-function sendMessage(data, callback) {
+function httppost(path, data, callback) {
 	let postDataStr = JSON.stringify(data);
 	let options = {
 		host: '52.198.86.179',
 		port: 8100,
-		path: '/test1',
+		path: path,
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
