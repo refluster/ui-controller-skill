@@ -31,15 +31,16 @@ var handlers = {
 		console.log('===== Leave end')
 	},
 	'ShowIntent': function () {
-	    let pageList = {'title': 'page1', 'contents': 'page2'};
 	    console.log('============ Show ===========')
-	    let slotWord = this.event.request.intent.slots.Page.value;
-		console.log('slotWord: ' + slotWord);
-		if (!(slotWord in pageList)) {
-   			this.emit(':tell', 'unable to show unknown page, ' + slotWord);
-   			return;
-		}
-		let targetPage = pageList[slotWord];
+		//let pageList = {'title': 'page1', 'contents': 'page2'};
+		//let slotWord = this.event.request.intent.slots.Page.value;
+		//console.log('slotWord: ' + slotWord);
+		let targetPage = this.event.request.intent.slots.Page.value;
+		//if (!(slotWord in pageList)) {
+		//	this.emit(':tell', 'unable to show unknown page, ' + slotWord);
+		//	return;
+		//}
+		//let targetPage = pageList[slotWord];
 		console.log('target: ' + targetPage);
 		sendMessage({page: targetPage}, function() {
 			this.emit(':tell', 'displaying ' + targetPage);
