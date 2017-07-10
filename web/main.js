@@ -28,7 +28,7 @@ app.post('/devctrl', (req, res) => {
 	console.log(req.body);
 	var ctrl = req.body.light;
 	if (ctrl == "on" || ctrl == "off") {
-		var cmd = 'python pcpf-stub/ctrl-light.sh ' + ctrl
+		var cmd = 'pcpf-stub/ctrl-light.sh ' + ctrl
 		console.log(cmd);
 		exec(cmd, (err, stdout, stderr) => {
 			if (err) { console.log(err); }
