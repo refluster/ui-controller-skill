@@ -9,6 +9,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class ControllerComponent {
 	url = 'http://52.198.86.179:8100/test1';
+	devctrlUrl = 'http://52.198.86.179:8100/devctrl';
 	//url = 'http://localhost:8100/test1';
 	pages = ['page1', 'page2', 'page3', 'page4']
 
@@ -18,6 +19,13 @@ export class ControllerComponent {
 
 	onClick(page): Promise<void> {
 		return this.http.post(this.url, JSON.stringify({page: page}), {headers: this.headers})
+			.toPromise()
+			.then(() => {})
+			.catch(this.handleError);
+	}
+
+	ctrlLight(ctrl): Promise<void> {
+		return this.http.post(this.devctrlUrl, JSON.stringify({light: ctrl}), {headers: this.headers})
 			.toPromise()
 			.then(() => {})
 			.catch(this.handleError);
