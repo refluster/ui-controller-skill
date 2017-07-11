@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const cors = require('cors');
+const exec = require('child_process').exec;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -17,6 +18,23 @@ app.post('/test1', (req, res) => {
 	console.log('test1 post');
 	console.log(req.body);
 	io.emit('pageset', req.body);
+	res.header("Content-Type", "application/json; charset=utf-8");
+	res.send('[hoge]');
+});
+
+app.post('/devctrl', (req, res) => {
+	// { light: on/off }
+	console.log('devctrl post');
+	console.log(req.body);
+	var ctrl = req.body.light;
+	if (ctrl == "on" || ctrl == "off") {
+		var cmd = 'pcpf-stub/ctrl-light.sh ' + ctrl
+		console.log(cmd);
+		exec(cmd, (err, stdout, stderr) => {
+			if (err) { console.log(err); }
+			console.log(stdout);
+		});
+	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[hoge]');
 });
