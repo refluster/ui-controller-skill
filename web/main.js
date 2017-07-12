@@ -26,17 +26,23 @@ app.post('/devctrl', (req, res) => {
 	// { light: on/off, delay: Xsec }
 	console.log('devctrl post');
 	console.log('req.body ', req.body);
-	var ctrl = req.body.light;
-	var delay = (req.body.delay != undefined? req.body.delay: 0);
-	if (ctrl == "on" || ctrl == "off") {
-		setTimeout(() => {
-			var cmd = 'pcpf-stub/ctrl-light.sh ' + ctrl
-			console.log(cmd);
-			exec(cmd, (err, stdout, stderr) => {
-				if (err) { console.log(err); }
-				console.log(stdout);
+
+	var sendCommandDelay = function(delay, callback) {
+		setTimeout(callback, delay*1000);
+	}
+
+	if (req.body.light != undefined) {
+		var r = req.body.light;
+		if (r.cmd == "on" || r.cmd == "off") {
+			sendCommandDelay(r.delay, () => {
+				var cmd = 'pcpf-stub/ctrl-light.sh ' + r.cmd;
+				console.log(cmd);
+				exec(cmd, (err, stdout, stderr) => {
+					if (err) { console.log(err); }
+					console.log(stdout);
+				});
 			});
-		}, delay*1000);
+		}
 	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[hoge]');
