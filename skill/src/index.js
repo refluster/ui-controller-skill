@@ -26,7 +26,7 @@ var handlers = {
 	'LeaveIntent': function() {
 		console.log('============ Leave ===========')
 		httppost('/test1', {page: 'page4'}, function() {
-			httppost('/devctrl', {light: 'off', delay: 5}, function() {
+			httppost('/devctrl', {light: {cmd: 'off', delay: 5}}, function() {
 				this.emit(':tell', 'Okay. Turning off the light and air conditioner in a minute. See you later.');
 			}.bind(this));
 		}.bind(this));
@@ -76,5 +76,5 @@ function httppost(path, data, callback) {
 		console.log('problem with request: ' + e.message);
 	});
 	req.write(postDataStr);
-	req.end();	
+	req.end();
 }
