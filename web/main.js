@@ -48,6 +48,19 @@ app.post('/devctrl', (req, res) => {
 	res.send('[hoge]');
 });
 
+app.post('/linepush', (req, res) => {
+	console.log('linepush post');
+	console.log(req.body);
+	/*
+	exec(cmd, (err, stdout, stderr) => {
+		if (err) { console.log(err); }
+		console.log(stdout);
+	});
+	*/
+	res.header("Content-Type", "application/json; charset=utf-8");
+	res.send('[linepush]');
+});
+
 io.on('connection', (socket) => {
 	let query       = socket.handshake.query;
 	let hoge        = query.hoge;
