@@ -51,12 +51,11 @@ app.post('/devctrl', (req, res) => {
 app.post('/linepush', (req, res) => {
 	console.log('linepush post');
 	console.log(req.body);
-	/*
-	exec(cmd, (err, stdout, stderr) => {
+
+	exec('./linepush.sh "' + req.body.value1 + '"', (err, stdout, stderr) => {
 		if (err) { console.log(err); }
 		console.log(stdout);
 	});
-	*/
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[linepush]');
 });
