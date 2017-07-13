@@ -25,7 +25,8 @@ export class ControllerComponent {
 	}
 
 	ctrlLight(ctrl): Promise<void> {
-		return this.http.post(this.devctrlUrl, JSON.stringify({light: ctrl}), {headers: this.headers})
+		return this.http.post(this.devctrlUrl, JSON.stringify({light: {cmd: ctrl, delay: 0}),
+															  {headers: this.headers})
 			.toPromise()
 			.then(() => {})
 			.catch(this.handleError);
