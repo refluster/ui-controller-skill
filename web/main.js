@@ -22,6 +22,14 @@ app.post('/test1', (req, res) => {
 	res.send('[hoge]');
 });
 
+app.post('/pageset', (req, res) => {
+	console.log('pageset post');
+	console.log(req.body);
+	io.emit('pageset', req.body);
+	res.header("Content-Type", "application/json; charset=utf-8");
+	res.send('[pageset]');
+});
+
 app.post('/devctrl', (req, res) => {
 	// { light: on/off, delay: Xsec }
 	console.log('devctrl post');
