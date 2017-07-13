@@ -14,14 +14,6 @@ const port = 8100;
 
 app.use(express.static('public'));
 
-app.post('/test1', (req, res) => {
-	console.log('test1 post');
-	console.log(req.body);
-	io.emit('pageset', req.body);
-	res.header("Content-Type", "application/json; charset=utf-8");
-	res.send('[hoge]');
-});
-
 app.post('/pageset', (req, res) => {
 	console.log('pageset post');
 	console.log(req.body);
@@ -54,17 +46,6 @@ app.post('/devctrl', (req, res) => {
 	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[hoge]');
-});
-
-app.get('/test1', (req, res) => {
-	console.log('test1 get');
-	res.header("Content-Type", "application/json; charset=utf-8");
-	res.send('[hoge]');
-});
-
-app.get('/test2', (req, res) => {
-	console.log('test2 get');
-	res.send('');
 });
 
 io.on('connection', (socket) => {
