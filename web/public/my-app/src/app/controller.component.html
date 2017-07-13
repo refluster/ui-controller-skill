@@ -1,3 +1,5 @@
+<hr>
+<h3>viewer</h3>
 <div class="grid grid-pad">
   <a *ngFor="let p of pages" (click)="onClick(p)" class="col-1-4">
     <div class="module hero">
@@ -5,6 +7,8 @@
     </div>
   </a>
 </div>
+<hr>
+<h3>light</h3>
 <div class="grid grid-pad">
   <a (click)="ctrlLight('on')" class="col-1-4">
     <div class="module hero">
@@ -14,6 +18,20 @@
   <a (click)="ctrlLight('off')" class="col-1-4">
     <div class="module hero">
       <h4>off</h4>
+    </div>
+  </a>
+</div>
+<hr>
+<h3>line push (今は植原のlineに通知します)</h3>
+<div class="grid grid-pad">
+  <a (click)="sendToLine('豚買ってきて')" class="col-1-4">
+    <div class="module hero">
+      <h4>豚買ってきて</h4>
+    </div>
+  </a>
+  <a (click)="sendToLine('hoge')" class="col-1-4">
+    <div class="module hero">
+      <h4>hoge</h4>
     </div>
   </a>
 </div>
