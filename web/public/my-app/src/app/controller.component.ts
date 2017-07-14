@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 	styleUrls: ['./controller.component.css'],
 })
 export class ControllerComponent {
-	url = 'http://52.198.86.179:8100/test1';
+	url = 'http://52.198.86.179:8100/pageset';
 	devctrlUrl = 'http://52.198.86.179:8100/devctrl';
 	linePushUrl = 'http://52.198.86.179:8100/linepush';
 	pages = ['page1', 'page2', 'page3', 'page4']
