@@ -11,21 +11,21 @@ exports.handler = function(event, context, callback) {
 var handlers = {
 	'LaunchRequest': function () {
 		console.log('============ [initial] ===========')
-		httppost('/test1', {page: 'page2'}, function() {
-			this.emit(':ask', 'The train is behind the schedule. You can select 3 alternative routes.');
+		httppost('/pageset', {page: 'page2'}, function() {
+			this.emit(':ask', 'The train is behind the schedule. <break time="3s"/> You can select 3 alternative routes.');
 		}.bind(this));
 		console.log('===== [initial] end')
 	},
 	'RouteIntent': function() {
 		console.log('============ Route ===========')
-		httppost('/test1', {page: 'page3'}, function() {
-			this.emit(':ask', 'Please leave home within 2 minutes.');
+		httppost('/pageset', {page: 'page3'}, function() {
+			this.emit(':tell', 'Okay <break time="3s"/> Please leave home within 2 minutes.');
 		}.bind(this));
 		console.log('===== Route end')
 	},
 	'LeaveIntent': function() {
 		console.log('============ Leave ===========')
-		httppost('/test1', {page: 'page4'}, function() {
+		httppost('/pageset', {page: 'page4'}, function() {
 			httppost('/devctrl', {light: {cmd: 'off', delay: 5}}, function() {
 				this.emit(':tell', 'Okay. Turning off the light and air conditioner in a minute. See you later.');
 			}.bind(this));
@@ -44,7 +44,7 @@ var handlers = {
 		//}
 		//let targetPage = pageList[slotWord];
 		console.log('target: ' + targetPage);
-		httppost('/test1', {page: targetPage}, function() {
+		httppost('/pageset', {page: targetPage}, function() {
 			this.emit(':tell', 'displaying ' + targetPage);
 		}.bind(this));
 	}
