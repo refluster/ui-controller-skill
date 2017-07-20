@@ -10,28 +10,18 @@
 <hr>
 <h3>light</h3>
 <div class="grid grid-pad">
-  <a (click)="ctrlLight('on')" class="col-1-4">
+  <a *ngFor="let c of ['on', 'off']" (click)="ctrlLight(c)" class="col-1-4">
     <div class="module">
-      <h4>on</h4>
-    </div>
-  </a>
-  <a (click)="ctrlLight('off')" class="col-1-4">
-    <div class="module">
-      <h4>off</h4>
+      <h4>{{c}}</h4>
     </div>
   </a>
 </div>
 <hr>
 <h3>line push (GUI先行デモgroupに通知)</h3>
 <div class="grid grid-pad">
-  <a (click)="sendToLine('豚買ってきて')" class="col-1-4">
+  <a *ngFor="let m of ['豚買ってきて', 'hoge']" (click)="sendToLine(m)" class="col-1-4">
     <div class="module">
-      <h4>豚買ってきて</h4>
-    </div>
-  </a>
-  <a (click)="sendToLine('hoge')" class="col-1-4">
-    <div class="module">
-      <h4>hoge</h4>
+      <h4>{{m}}</h4>
     </div>
   </a>
 </div>
