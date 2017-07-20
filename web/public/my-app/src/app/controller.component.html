@@ -1,7 +1,7 @@
 <hr>
 <h3>viewer</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let p of pages" (click)="onClick(p)" class="col-1-4">
+  <a *ngFor="let p of ['page1', 'page2', 'page3', 'page4']" (click)="onClick(p)" class="col-1-4">
     <div class="module">
       <h4>show {{p}}</h4>
     </div>

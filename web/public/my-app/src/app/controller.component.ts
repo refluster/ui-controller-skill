@@ -11,7 +11,6 @@ export class ControllerComponent {
 	url = 'http://52.198.86.179:8100/pageset';
 	devctrlUrl = 'http://52.198.86.179:8100/devctrl';
 	linePushUrl = 'http://52.198.86.179:8100/linepush';
-	pages = ['page1', 'page2', 'page3', 'page4']
 
 	constructor(private http: Http) { }
 
