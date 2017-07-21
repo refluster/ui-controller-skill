@@ -3,3 +3,11 @@ div.page {
 	background-color: #009688;
 	*/
 }
+
+div.overlay {
+	position: absolute;
+	color: white;
+	left: 1024px;
+	top: 512px;
+	font-size: 48px;
+}
