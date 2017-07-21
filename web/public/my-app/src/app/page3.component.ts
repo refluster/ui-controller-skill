@@ -9,5 +9,20 @@ import { OnInit } from '@angular/core';
 })
 
 export class Page3Component implements OnInit {
-	ngOnInit(): void {	}
+	clock = new Date(1970, 0, 0, 0, 20, 35);
+	clock_str = '';
+
+	ngOnInit(): void {
+		setInterval(() => {
+			this.clock.setSeconds(this.clock.getSeconds() - 1);
+			//this.clock = this.clock + 1;
+			this.clock_str = toStr(this.clock.getHours(), 2) + ':' +
+				toStr(this.clock.getMinutes(), 2) + ':' +
+				toStr(this.clock.getSeconds(), 2);
+		}, 1000);
+	}
+}
+
+function toStr(n, len) {
+	return (Array(len+1).join('0')+n).slice(-len);
 }

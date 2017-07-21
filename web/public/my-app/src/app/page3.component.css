@@ -8,6 +8,6 @@ div.overlay {
 	position: absolute;
 	color: white;
 	left: 1024px;
-	top: 512px;
+	top: 1024px;
 	font-size: 48px;
 }
