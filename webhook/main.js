@@ -44,8 +44,15 @@ app.post('/devctrl', (req, res) => {
 			});
 		}
 	}
+	if (req.body.tv != undefined) {
+		var r = req.body.tv;
+		if (r.cmd == "on" || r.cmd == "off") {
+			console.log({tv: r});
+			io.emit('devctrl', {tv: r});
+		}
+	}
 	res.header("Content-Type", "application/json; charset=utf-8");
-	res.send('[hoge]');
+	res.send('[devctrl]');
 });
 
 app.post('/linepush', (req, res) => {
