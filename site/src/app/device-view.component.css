@@ -2,9 +2,14 @@
 	display: inline-block;
 	line-height: 28px;
 	height: 28px;
-	width: 40px;
+	width: 32px;
 	background-color: #607D8B;
 	color: #eee;
 	border-radius: 2px;
 	text-align: center;
+	margin: 4px 2px;
+}
+
+.grid {
+	margin: 8px 4px;
 }
