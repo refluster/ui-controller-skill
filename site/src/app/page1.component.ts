@@ -18,6 +18,8 @@ export class Page1Component implements OnInit {
 	ngOnInit(): void {	}
 
 	adjustPosition() {
+		let bb = this._el.getElementsByTagName('video')[0].getBoundingClientRect()
 		console.log(this._el.getElementsByTagName('video')[0].getBoundingClientRect());
+		scroll(0, bb.top);
 	}
 }
