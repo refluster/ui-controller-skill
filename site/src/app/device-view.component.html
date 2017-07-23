@@ -1,5 +1,12 @@
 <h3>device view</h3>
-<p>{{tv.poweron}}</p>
+<ul>
+  <li>tv
+    <ul>
+      <li>power: {{tv.poweron == true? 'on': 'off'}}</li>
+      <li>channel: {{tv.channel}}</li>
+    </ul>
+  </li>
+</ul>
 <hr>
 <h3>controller</h3>
 <div class="grid grid-pad">
