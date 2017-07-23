@@ -42,8 +42,6 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	}
 
 	devctrl(data) {
-		console.log('devctrl called --')
-		console.log(data);
 		return this.http.post(this.devctrlUrl, JSON.stringify(data), {headers: this.headers})
 			.toPromise()
 			.then(() => {})
