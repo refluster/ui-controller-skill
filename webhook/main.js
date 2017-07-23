@@ -46,10 +46,8 @@ app.post('/devctrl', (req, res) => {
 	}
 	if (req.body.tv != undefined) {
 		var r = req.body.tv;
-		if (r.cmd == "on" || r.cmd == "off") {
-			console.log({tv: r});
-			io.emit('devctrl', {tv: r});
-		}
+		console.log({devctrl: {tv: r}});
+		io.emit('device-view', {devctrl: {tv: r}});
 	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[devctrl]');
