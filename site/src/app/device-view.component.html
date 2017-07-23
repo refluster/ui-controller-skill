@@ -1,1 +1,22 @@
-device view
+<h3>device view</h3>
+<ul>
+  <li>tv
+    <ul>
+      <li>power: {{tv.poweron == true? 'on': 'off'}}</li>
+      <li>channel: {{tv.channel}}</li>
+    </ul>
+  </li>
+</ul>
+<hr>
+<h3>controller</h3>
+<h4>TV</h4>
+<div class="grid">
+  <a *ngFor="let c of [[true, 'on'], [false, 'off']]" (click)="devctrl({tv: {poweron: c[0]}})" class="button">
+    {{c[1]}}
+  </a>
+</div>
+<div class="grid">
+  <a *ngFor="let c of [1,2,3,4,5,6,7,8,9,10,11,12]" (click)="devctrl({tv: {channel: c}})" class="button">
+    {{c}}
+  </a>
+</div>

@@ -29,3 +29,5 @@ export class WebsocketService {
 		return observable;
 	}
 }
+// sample post
+// curl -X POST http://52.198.86.179:8100/devctrl -H 'Content-type: application/json' -d '{"tv": "on"}'
