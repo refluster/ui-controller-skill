@@ -6,6 +6,7 @@ import { Page2Component } from './page2.component';
 import { Page3Component } from './page3.component';
 import { Page4Component } from './page4.component';
 import { ControllerComponent } from './controller.component';
+import { DeviceViewComponent } from './device-view.component';
 
 const routes: Routes = [
 	{
@@ -23,6 +24,9 @@ const routes: Routes = [
 	}, {
 		path: 'controller',
 		component: ControllerComponent
+	}, {
+		path: 'device-view',
+		component: DeviceViewComponent
 	}, {
 		path: '',
 		redirectTo: '/page1',

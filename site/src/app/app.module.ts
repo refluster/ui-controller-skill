@@ -10,6 +10,7 @@ import { Page3Component } from './page3.component';
 import { Page4Component } from './page4.component';
 import { WebsocketComponent } from './websocket.component';
 import { ControllerComponent } from './controller.component';
+import { DeviceViewComponent } from './device-view.component';
 import { WebsocketService } from './websocket.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 		Page4Component,
 		WebsocketComponent,
 		ControllerComponent,
+		DeviceViewComponent,
 	],
 	imports: [
 		BrowserModule,
