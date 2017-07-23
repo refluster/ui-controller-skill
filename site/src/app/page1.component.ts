@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnInit } from '@angular/core';
 
@@ -9,5 +9,17 @@ import { OnInit } from '@angular/core';
 })
 
 export class Page1Component implements OnInit {
+	private _el: HTMLElement;
+
+	constructor(el: ElementRef) {
+		this._el = el.nativeElement;
+	}
+
 	ngOnInit(): void {	}
+
+	adjustPosition() {
+		let bb = this._el.getElementsByTagName('video')[0].getBoundingClientRect()
+		let cx = (bb.left + bb.right)/2;
+		scroll(cx - innerWidth/2, bb.top);
+	}
 }
