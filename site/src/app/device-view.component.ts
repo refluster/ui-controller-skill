@@ -29,7 +29,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 				if (data['tv']['poweron'] != undefined) {
 					this.tv.poweron = data['tv']['poweron'];
 				}
-				if (data['tv']['poweron'] != undefined) {
+				if (data['tv']['channel'] != undefined) {
 					this.tv.channel = data['tv']['channel'];
 				}
 			}
