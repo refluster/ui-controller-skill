@@ -9,17 +9,12 @@
 </ul>
 <hr>
 <h3>controller</h3>
+<h4>TV</h4>
 <div class="grid grid-pad">
-  <a (click)="devctrl({tv: {poweron: true}})" class="col-1-4">
-    <div class="module">
-      <h4>tv on</h4>
-    </div>
+  <a (click)="devctrl({tv: {poweron: true}})" class="button">
+    on
   </a>
-</div>
-<div class="grid grid-pad">
-  <a (click)="devctrl({tv: {poweron: false}})" class="col-1-4">
-    <div class="module">
-      <h4>tv off</h4>
-    </div>
+  <a (click)="devctrl({tv: {poweron: false}})" class="button">
+    off
   </a>
 </div>

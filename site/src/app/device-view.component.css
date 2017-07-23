@@ -1,5 +1,10 @@
-div.page {
-	/*
-	background-color: #F44336;
-	*/
+.button {
+	display: inline-block;
+	line-height: 28px;
+	height: 28px;
+	width: 40px;
+	background-color: #607D8B;
+	color: #eee;
+	border-radius: 2px;
+	text-align: center;
 }
