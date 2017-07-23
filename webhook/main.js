@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.post('/pageset', (req, res) => {
 	console.log('pageset post');
 	console.log(req.body);
-	io.emit('pageset', req.body);
+	io.emit('message', {pageset: req.body});
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[pageset]');
 });
