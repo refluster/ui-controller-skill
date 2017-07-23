@@ -1,1 +1,11 @@
-device view
+<h3>device view</h3>
+<p>{{tv.poweron}}</p>
+<hr>
+<h3>controller</h3>
+<div class="grid grid-pad">
+  <a (click)="devctrl({tv: {poweron: true}})" class="col-1-4">
+    <div class="module">
+      <h4>tv on</h4>
+    </div>
+  </a>
+</div>
