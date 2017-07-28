@@ -64,9 +64,11 @@ export class ViewerComponent implements OnInit {
 		// hide current movie and reset the sequence
 		let _m = <HTMLElement>m[this.currentMovieNumber - 1];
 		let v = _m.getElementsByTagName('video')[0];
-		_m.style.visibility = 'hidden';
 		v.pause();
 		v.currentTime = 0;
+		setTimeout(() => {
+			_m.style.visibility = 'hidden';
+		}, 50); // zantei duration for avoiding blackout on movie change
 
 		// show selected movie and play
 		(<HTMLElement>m[number - 1]).style.visibility = 'visible';
