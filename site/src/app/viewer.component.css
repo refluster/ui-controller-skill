@@ -54,7 +54,8 @@ div.page {
 }
 
 .movie {
-	display: none;
+	display: block;
+	visibility: hidden;
 	position: absolute;
 	margin: auto;
 	left: 0;

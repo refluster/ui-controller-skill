@@ -17,7 +17,6 @@ export class ViewerComponent implements OnInit {
 	private countdownTimer;
 	private initialClock = new Date(1970, 0, 0, 0, 20, 35);
 	private clock_str = '';
-	private previousMovieNumber: number;
 	private currentMovieNumber: number;
 
 	constructor(private websocketService: WebsocketService, el: ElementRef) {
@@ -61,15 +60,16 @@ export class ViewerComponent implements OnInit {
 	movieChange(number: number) {
 		console.log(number);
 		let m = this._el.getElementsByClassName('movie');
-		setTimeout(() => {
-			let _m = <HTMLElement>m[this.previousMovieNumber - 1];
-			let v = _m.getElementsByTagName('video')[0];
-			_m.style.display = 'none';
-			v.pause();
-			v.currentTime = 0;
-		}, 100); // zantei duration for overlapping two movies
 
-		(<HTMLElement>m[number - 1]).style.display = 'block';
+		// hide current movie and reset the sequence
+		let _m = <HTMLElement>m[this.currentMovieNumber - 1];
+		let v = _m.getElementsByTagName('video')[0];
+		_m.style.visibility = 'hidden';
+		v.pause();
+		v.currentTime = 0;
+
+		// show selected movie and play
+		(<HTMLElement>m[number - 1]).style.visibility = 'visible';
 		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
 
 		if (number == 3) {
@@ -79,11 +79,9 @@ export class ViewerComponent implements OnInit {
 					toStr(this.initialClock.getMinutes(), 2) + ':' +
 					toStr(this.initialClock.getSeconds(), 2);
 			}, 1000);
-		} else {
-			if (this.countdownTimer != undefined) {
-				clearInterval(this.countdownTimer);
-				this.countdownTimer = undefined;
-			}
+		}
+		if (this.currentMovieNumber == 3) {
+			clearInterval(this.countdownTimer);
 		}
 	}
 
@@ -93,7 +91,6 @@ export class ViewerComponent implements OnInit {
 			return;
 		}
 		this.movieChange(number);
-		this.previousMovieNumber = this.currentMovieNumber;
 		this.currentMovieNumber = number;
 	}
 }
