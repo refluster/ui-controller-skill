@@ -31,8 +31,7 @@ div.page {
 	border: none;
 }
 
-.movie {
-	display: none;
+#content {
 	position: absolute;
 	margin: auto;
 	left: 0;
@@ -41,6 +40,31 @@ div.page {
 	bottom: 0;
 	width: 1200px;
 	height: 1440px;
+}
+
+#header {
+	position: absolute;
+	background-color: #345;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 1200px;
+	height: 380px;
+}
+
+.movie {
+	display: none;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 380;
+	bottom: 0;
+	object-fit: fill;
+	width: 1200px;
+	height: 1060px;
+	background-color: #777;
 }
 
 div.overlay {
