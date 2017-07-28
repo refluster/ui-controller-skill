@@ -51,6 +51,8 @@ div.page {
 	bottom: 0;
 	width: 1200px;
 	height: 380px;
+	background-image: url(/assets/img/header.png);
+	background-size: cover;
 }
 
 .movie {
