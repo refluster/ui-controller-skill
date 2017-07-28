@@ -30,3 +30,23 @@ div.page {
 	text-align: center;
 	border: none;
 }
+
+.movie {
+	display: block;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 1200px;
+	height: 1440px;
+}
+
+div.overlay {
+	position: absolute;
+	color: white;
+	left: 1024px;
+	top: 1024px;
+	font-size: 48px;
+}
