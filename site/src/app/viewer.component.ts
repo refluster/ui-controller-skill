@@ -56,8 +56,12 @@ export class ViewerComponent implements OnInit {
 		console.log(number);
 		let m = this._el.getElementsByClassName('movie');
 		for (let i = 0; i < m.length; i++) {
+			let v = (<HTMLElement>m[number - 1]).getElementsByTagName('video')[0];
+			v.currentTime = 0;
+			v.pause();
 			(<HTMLElement>m[i]).style.display = 'none';
 		}
 		(<HTMLElement>m[number - 1]).style.display = 'block';
+		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
 	}
 }
