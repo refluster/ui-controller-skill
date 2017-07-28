@@ -14,6 +14,9 @@ export class ViewerComponent implements OnInit {
 	private _el: HTMLElement;
 	private dispVideoBorder: boolean = false;
 	private connection;
+	private countdownTimer;
+	private initialClock = new Date(1970, 0, 0, 0, 20, 35);
+	private clock_str = '';
 
 	constructor(private websocketService: WebsocketService, el: ElementRef) {
 		this._el = el.nativeElement;
@@ -63,5 +66,23 @@ export class ViewerComponent implements OnInit {
 		}
 		(<HTMLElement>m[number - 1]).style.display = 'block';
 		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
+
+		if (number == 3) {
+			this.countdownTimer = setInterval(() => {
+				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
+				//this.clock = this.clock + 1;
+				this.clock_str = toStr(this.initialClock.getHours(), 2) + ':' +
+					toStr(this.initialClock.getMinutes(), 2) + ':' +
+					toStr(this.initialClock.getSeconds(), 2);
+			}, 1000);
+		} else {
+			if (this.countdownTimer !== undefined) {
+				this.countdownTimer.clearInterval();
+			}
+		}
 	}
+}
+
+function toStr(n, len) {
+	return (Array(len+1).join('0')+n).slice(-len);
 }
