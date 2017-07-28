@@ -22,6 +22,14 @@ app.post('/pageset', (req, res) => {
 	res.send('[pageset]');
 });
 
+app.post('/movieset', (req, res) => {
+	console.log('movieset post');
+	console.log(req.body);
+	io.emit('message', {movieset: req.body});
+	res.header("Content-Type", "application/json; charset=utf-8");
+	res.send('[movieset]');
+});
+
 app.post('/devctrl', (req, res) => {
 	// { light: on/off, delay: Xsec }
 	console.log('devctrl post');
