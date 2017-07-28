@@ -5,6 +5,7 @@ import { Page1Component } from './page1.component';
 import { Page2Component } from './page2.component';
 import { Page3Component } from './page3.component';
 import { Page4Component } from './page4.component';
+import { ViewerComponent } from './viewer.component';
 import { ControllerComponent } from './controller.component';
 import { DeviceViewComponent } from './device-view.component';
 
@@ -21,6 +22,9 @@ const routes: Routes = [
 	}, {
 		path: 'page4',
 		component: Page4Component
+	}, {
+		path: 'viewer',
+		component: ViewerComponent
 	}, {
 		path: 'controller',
 		component: ControllerComponent

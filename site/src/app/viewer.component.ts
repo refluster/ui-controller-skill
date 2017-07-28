@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { OnInit } from '@angular/core';
 
 @Component({
-	selector: 'page1',
-	templateUrl: 'page1.component.html',
-	styleUrls: ['./page.component.css', './page1.component.css'],
+	selector: 'viewer',
+	templateUrl: 'viewer.component.html',
+	styleUrls: ['./viewer.component.css'],
 })
 
-export class Page1Component implements OnInit {
+export class ViewerComponent implements OnInit {
 	private _el: HTMLElement;
 	private dispVideoBorder: boolean = false;
 

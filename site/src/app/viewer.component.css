@@ -1,7 +1,20 @@
 div.page {
-	/*
-	background-color: #F44336;
-	*/
+	width: 2400px;
+	height: 1440px;
+	background-color: #000;
+	position: relative;
+}
+
+.video {
+	display: block;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 1200px;
+	height: 1440px;
 }
 
 .button2 {

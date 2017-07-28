@@ -8,6 +8,7 @@ import { Page1Component } from './page1.component';
 import { Page2Component } from './page2.component';
 import { Page3Component } from './page3.component';
 import { Page4Component } from './page4.component';
+import { ViewerComponent } from './viewer.component';
 import { WebsocketComponent } from './websocket.component';
 import { ControllerComponent } from './controller.component';
 import { DeviceViewComponent } from './device-view.component';
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 		Page2Component,
 		Page3Component,
 		Page4Component,
+		ViewerComponent,
 		WebsocketComponent,
 		ControllerComponent,
 		DeviceViewComponent,
