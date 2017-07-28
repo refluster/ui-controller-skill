@@ -1,0 +1,19 @@
+div.page {
+	/*
+	background-color: #F44336;
+	*/
+}
+
+.button2 {
+	font-size: 24px;
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 140px;
+	height: 64px;
+	line-height: 48px;
+	border-radius: 2px;
+	background-color: #60f3c0;
+	text-align: center;
+	border: none;
+}
