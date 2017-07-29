@@ -11,21 +11,21 @@ exports.handler = function(event, context, callback) {
 var handlers = {
 	'LaunchRequest': function () {
 		console.log('============ [initial] ===========')
-		httppost('/pageset', {page: 'page2'}, function() {
+		httppost('/movieset', {movie: 2}, function() {
 			this.emit(':ask', 'The train is behind the schedule. <break time="3s"/> You can select 3 alternative routes.');
 		}.bind(this));
 		console.log('===== [initial] end')
 	},
 	'RouteIntent': function() {
 		console.log('============ Route ===========')
-		httppost('/pageset', {page: 'page3'}, function() {
+		httppost('/movieset', {movie: 3}, function() {
 			this.emit(':tell', 'Okay <break time="3s"/> Please leave home within 2 minutes.');
 		}.bind(this));
 		console.log('===== Route end')
 	},
 	'LeaveIntent': function() {
 		console.log('============ Leave ===========')
-		httppost('/pageset', {page: 'page4'}, function() {
+		httppost('/movieset', {movie: 4}, function() {
 			httppost('/devctrl', {light: {cmd: 'off', delay: 5}}, function() {
 				this.emit(':tell', 'Okay. Turning off the light and air conditioner in a minute. See you later.');
 			}.bind(this));
