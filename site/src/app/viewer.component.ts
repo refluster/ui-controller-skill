@@ -43,13 +43,16 @@ export class ViewerComponent implements OnInit {
 	}
 
 	setSecondCount() {
-		var rad = 0;
 		let fps = 10;
 		let ball = <HTMLElement>this._el.querySelector('#ball');
-		setInterval(() => {
-			let cx = 600;
-			let cy = 650;
-			let radius = 310;
+		let cx = 600;
+		let cy = 650;
+		let radius = 310;
+
+		function step() {
+			let d = new Date();
+			let n = d.getTime();
+			let rad = 2*Math.PI*(n%1000)/1000;
 
 			let x = Math.floor(cx + Math.sin(rad)*radius);
 			let y = Math.floor(cy - Math.cos(rad)*radius);
@@ -57,8 +60,9 @@ export class ViewerComponent implements OnInit {
 			ball.style.top = (y - 10).toString() + 'px';
 			ball.style.left = (x - 10).toString() + 'px';
 
-			rad += 2*Math.PI/fps;
-		}, 1000/fps);
+			window.requestAnimationFrame(step);
+		}
+		window.requestAnimationFrame(step);
 	}
 
 	adjustPosition() {
