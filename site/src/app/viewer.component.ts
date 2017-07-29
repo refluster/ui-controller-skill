@@ -21,6 +21,7 @@ export class ViewerComponent implements OnInit {
 	private month: string;
 	private day: string;
 	private week: string;
+	private setSecondCountStopFlag = false;
 
 	constructor(private websocketService: WebsocketService, el: ElementRef) {
 		this._el = el.nativeElement;
@@ -38,7 +39,6 @@ export class ViewerComponent implements OnInit {
 		});
 		this.currentMovieNumber = 2;
 		this.movieSet(3);
-		this.setSecondCount();
 
 		let weekName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 		let date = new Date();
@@ -57,8 +57,14 @@ export class ViewerComponent implements OnInit {
 		let cx = 600;
 		let cy = 650;
 		let radius = 310;
+		this.setSecondCountStopFlag = true;
 
+		var count = 0;
 		function step() {
+			if (this.setSecondCountStopFlag == false) {
+				return;
+			}
+
 			let d = new Date();
 			let n = d.getTime();
 			let rad = 2*Math.PI*(n%1000)/1000;
@@ -69,9 +75,9 @@ export class ViewerComponent implements OnInit {
 			ball.style.top = (y - 10).toString() + 'px';
 			ball.style.left = (x - 10).toString() + 'px';
 
-			window.requestAnimationFrame(step);
+			window.requestAnimationFrame(step.bind(this));
 		}
-		window.requestAnimationFrame(step);
+		window.requestAnimationFrame(step.bind(this));
 	}
 
 	adjustPosition() {
@@ -114,9 +120,11 @@ export class ViewerComponent implements OnInit {
 					toStr(this.initialClock.getMinutes(), 2) + ' ' +
 					toStr(this.initialClock.getSeconds(), 2);
 			}, 1000);
+			this.setSecondCount();
 		}
 		if (this.currentMovieNumber == 3) {
 			clearInterval(this.countdownTimer);
+			this.setSecondCountStopFlag = false;
 		}
 	}
 
