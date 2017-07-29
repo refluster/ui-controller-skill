@@ -34,11 +34,31 @@ export class ViewerComponent implements OnInit {
 			}
 		});
 		this.currentMovieNumber = 2;
-		this.movieSet(1);
+		this.movieSet(3);
+		this.setSecondCount();
 	}
 
 	ngOnDestroy() {
 		this.connection.unsubscribe();
+	}
+
+	setSecondCount() {
+		var rad = 0;
+		let fps = 10;
+		let ball = <HTMLElement>this._el.querySelector('#ball');
+		setInterval(() => {
+			let cx = 600;
+			let cy = 650;
+			let radius = 310;
+
+			let x = Math.floor(cx + Math.sin(rad)*radius);
+			let y = Math.floor(cy - Math.cos(rad)*radius);
+
+			ball.style.top = (y - 10).toString() + 'px';
+			ball.style.left = (x - 10).toString() + 'px';
+
+			rad += 2*Math.PI/fps;
+		}, 1000/fps);
 	}
 
 	adjustPosition() {

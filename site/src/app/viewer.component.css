@@ -78,10 +78,8 @@ div.overlay {
 	font-size: 48px;
 }
 
-.ball {
+#ball {
 	position: absolute;
-	left: 300px;
-	top: 300px;
 	width: 20px;
 	height: 20px;
     background: radial-gradient(rgba(255, 255, 255, 0.7) 70%,
