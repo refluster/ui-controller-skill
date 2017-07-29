@@ -103,8 +103,10 @@ div.page {
 div.overlay {
 	position: absolute;
 	color: white;
-	left: 680px;
+	left: 0px;
 	top: 1024px;
+	width: 100%;
+	text-align: center;
 	font-size: 48px;
 }
 
