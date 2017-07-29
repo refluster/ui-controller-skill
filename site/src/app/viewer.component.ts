@@ -110,8 +110,8 @@ export class ViewerComponent implements OnInit {
 		if (number == 3) {
 			this.countdownTimer = setInterval(() => {
 				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
-				this.clock_str = toStr(this.initialClock.getHours(), 2) + ':' +
-					toStr(this.initialClock.getMinutes(), 2) + ':' +
+				this.clock_str = toStr(this.initialClock.getHours(), 2) + ' ' +
+					toStr(this.initialClock.getMinutes(), 2) + ' ' +
 					toStr(this.initialClock.getSeconds(), 2);
 			}, 1000);
 		}

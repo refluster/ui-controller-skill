@@ -104,10 +104,10 @@ div.overlay {
 	position: absolute;
 	color: white;
 	left: 0px;
-	top: 1024px;
+	top: 600px;
 	width: 100%;
+	font-size: 250px;
 	text-align: center;
-	font-size: 48px;
 }
 
 #ball {
