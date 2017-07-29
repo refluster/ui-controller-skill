@@ -55,6 +55,36 @@ div.page {
 	background-size: cover;
 }
 
+#month {
+	font-size: 110px;
+	color: #fff;
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	width: 280px;
+	text-align: center;
+}
+
+#day {
+	font-size: 110px;
+	color: #fff;
+	position: absolute;
+	top: 150px;
+	left: 0px;
+	width: 280px;
+	text-align: center;
+}
+
+#week {
+	font-size: 40px;
+	color: #fff;
+	position: absolute;
+	top: 270px;
+	left: 0px;
+	width: 280px;
+	text-align: center;
+}
+
 .movie {
 	display: block;
 	visibility: hidden;

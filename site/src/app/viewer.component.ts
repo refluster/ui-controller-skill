@@ -18,6 +18,9 @@ export class ViewerComponent implements OnInit {
 	private initialClock = new Date(1970, 0, 0, 0, 20, 35);
 	private clock_str = '';
 	private currentMovieNumber: number;
+	private month: string;
+	private day: string;
+	private week: string;
 
 	constructor(private websocketService: WebsocketService, el: ElementRef) {
 		this._el = el.nativeElement;
@@ -34,8 +37,14 @@ export class ViewerComponent implements OnInit {
 			}
 		});
 		this.currentMovieNumber = 2;
-		this.movieSet(3);
+		this.movieSet(1);
 		this.setSecondCount();
+
+		let weekName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+		let date = new Date();
+		this.month = toStr(date.getMonth() + 1, 2);
+		this.day = toStr(date.getDate(), 2);
+		this.week = weekName[date.getDay()];
 	}
 
 	ngOnDestroy() {
