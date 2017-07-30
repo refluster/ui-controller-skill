@@ -100,7 +100,7 @@ div.page {
 	background-color: #777;
 }
 
-div.overlay {
+#clock {
 	position: absolute;
 	color: white;
 	left: 0px;
@@ -116,4 +116,14 @@ div.overlay {
 	height: 20px;
     background: radial-gradient(rgba(255, 255, 255, 0.7) 70%,
 								rgba(255, 255, 255, 0.0) 71%);
+}
+
+.fadeIn {
+	animation: fadeIn 5s linear 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    80% {opacity: 0}
+    100% {opacity: 1}
 }

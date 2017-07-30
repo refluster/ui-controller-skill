@@ -38,7 +38,7 @@ export class ViewerComponent implements OnInit {
 			}
 		});
 		this.currentMovieNumber = 2;
-		this.movieSet(3);
+		this.movieSet(1);
 
 		let weekName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 		let date = new Date();
@@ -121,10 +121,18 @@ export class ViewerComponent implements OnInit {
 					toStr(this.initialClock.getSeconds(), 2);
 			}, 1000);
 			this.setSecondCount();
+			let clock = this._el.querySelector('#clock');
+			let ball = this._el.querySelector('#ball');
+			clock.classList.add('fadeIn');
+			ball.classList.add('fadeIn');
 		}
 		if (this.currentMovieNumber == 3) {
 			clearInterval(this.countdownTimer);
 			this.setSecondCountStopFlag = false;
+			let clock = this._el.querySelector('#clock');
+			let ball = this._el.querySelector('#ball');
+			clock.classList.remove('fadeIn');
+			ball.classList.remove('fadeIn');
 		}
 	}
 
