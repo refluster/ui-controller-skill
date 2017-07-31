@@ -14,7 +14,7 @@ export class ViewerComponent implements OnInit {
 	private _el: HTMLElement;
 	private dispVideoBorder: boolean = false;
 	private connection;
-	private countdownTimer;
+	//private countdownTimer;
 	private initialClock = new Date(1970, 0, 0, 0, 20, 35);
 	private clock_str = '';
 	private currentMovieNumber: number;
@@ -60,6 +60,7 @@ export class ViewerComponent implements OnInit {
 		this.setSecondCountStopFlag = true;
 
 		var count = 0;
+		var prevRad = 0;
 		function step() {
 			if (this.setSecondCountStopFlag == false) {
 				return;
@@ -74,6 +75,15 @@ export class ViewerComponent implements OnInit {
 
 			ball.style.top = (y - 10).toString() + 'px';
 			ball.style.left = (x - 10).toString() + 'px';
+
+			// count update alternative for setInterval
+			if (prevRad > rad) {
+				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
+				this.clock_str = toStr(this.initialClock.getHours(), 2) + ' ' +
+					toStr(this.initialClock.getMinutes(), 2) + ' ' +
+					toStr(this.initialClock.getSeconds(), 2);
+			}
+			prevRad = rad;
 
 			window.requestAnimationFrame(step.bind(this));
 		}
@@ -114,12 +124,14 @@ export class ViewerComponent implements OnInit {
 		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
 
 		if (number == 3) {
+			/*
 			this.countdownTimer = setInterval(() => {
 				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
 				this.clock_str = toStr(this.initialClock.getHours(), 2) + ' ' +
 					toStr(this.initialClock.getMinutes(), 2) + ' ' +
 					toStr(this.initialClock.getSeconds(), 2);
 			}, 1000);
+			*/
 			this.setSecondCount();
 			let clock = this._el.querySelector('#clock');
 			let ball = this._el.querySelector('#ball');
@@ -127,7 +139,7 @@ export class ViewerComponent implements OnInit {
 			ball.classList.add('fadeIn');
 		}
 		if (this.currentMovieNumber == 3) {
-			clearInterval(this.countdownTimer);
+			//clearInterval(this.countdownTimer);
 			this.setSecondCountStopFlag = false;
 			let clock = this._el.querySelector('#clock');
 			let ball = this._el.querySelector('#ball');
