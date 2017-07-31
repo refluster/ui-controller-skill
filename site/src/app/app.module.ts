@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ViewerComponent } from './viewer.component';
-import { WebsocketComponent } from './websocket.component';
 import { ControllerComponent } from './controller.component';
 import { DeviceViewComponent } from './device-view.component';
 import { WebsocketService } from './websocket.service';
@@ -16,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 	declarations: [
 		AppComponent,
 		ViewerComponent,
-		WebsocketComponent,
 		ControllerComponent,
 		DeviceViewComponent,
 	],
