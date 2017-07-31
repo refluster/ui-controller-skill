@@ -42,6 +42,8 @@ div.page {
 	height: 1440px;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:300,400');
+
 #header {
 	position: absolute;
 	background-color: #345;
@@ -53,26 +55,29 @@ div.page {
 	height: 380px;
 	background-image: url(/assets/img/header.png);
 	background-size: cover;
+	font-family: 'Yantramanav', sans-serif;
 }
 
 #month {
-	font-size: 110px;
+	font-size: 122px;
 	color: #fff;
 	position: absolute;
-	top: 40px;
+	top: 30px;
 	left: 0px;
 	width: 280px;
 	text-align: center;
+	font-weidht: 400;
 }
 
 #day {
-	font-size: 110px;
+	font-size: 122px;
 	color: #fff;
 	position: absolute;
-	top: 150px;
+	top: 140px;
 	left: 0px;
 	width: 280px;
 	text-align: center;
+	font-weidht: 400;
 }
 
 #week {
@@ -83,6 +88,7 @@ div.page {
 	left: 0px;
 	width: 280px;
 	text-align: center;
+	font-weidht: 300;
 }
 
 .movie {
