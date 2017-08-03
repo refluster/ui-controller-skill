@@ -122,6 +122,12 @@ export class ViewerComponent implements OnInit {
 		// show selected movie and play
 		(<HTMLElement>m[number - 1]).style.visibility = 'visible';
 		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
+
+		var setTime = 20;
+		let c = <HTMLElement>this._el.getElementsByClassName('circle')[0];
+		c.classList.remove('pie');
+		c.classList.add('pie');
+		c.style.animation = 'pie '+ setTime*2 +'s linear';
 	}
 
 	movieSet(number: number) {
