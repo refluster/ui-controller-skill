@@ -124,6 +124,45 @@ div.page {
 								rgba(255, 255, 255, 0.0) 71%);
 }
 
+#progress {
+	position: absolute;
+	height: 0;
+	width: 300px;
+	display: block;
+	padding-bottom: 300px;
+	margin-bottom:10px;
+	svg {
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		transform: rotate(-90deg);
+		top: 0;
+		left: 0;
+		overflow: visible;
+	}
+	.circle {
+		fill: rgba(0,0,0,0);
+		stroke-width: 50;
+		stroke-dasharray: 0,157;
+	}
+	.pie {
+		stroke: #00bcac;
+		webkit-animation-name: pie;
+		animation-name: pie;
+	}
+	.base{
+		fill: #f9f9f9;
+	}
+	@-webkit-keyframes pie {
+		50%,100% { stroke-dasharray: 157,157,0,0;}
+	}
+	@keyframes pie {
+		50%,100% { stroke-dasharray: 157,157,0,0;}
+	}
+}
+
+
 .fadeIn {
 	animation: fadeIn 5s linear 0s 1 normal;
 }
