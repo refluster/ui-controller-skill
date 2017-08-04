@@ -15,7 +15,6 @@ export class ViewerComponent implements OnInit {
 	private dispVideoBorder: boolean = false;
 	private connection;
 	private countdownTimer;
-	private initialClock = new Date(1970, 0, 0, 0, 2, 0);
 	private clock_str = '';
 	private currentMovieNumber: number;
 	private month: string;
@@ -87,11 +86,12 @@ export class ViewerComponent implements OnInit {
 		if (number == 3) {
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'block';
+			let clock = new Date(1970, 0, 0, 0, 2, 0);
 			this.countdownTimer = setInterval(function() {
-				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
-				this.clock_str = toStr(this.initialClock.getHours(), 2) + ' ' +
-					toStr(this.initialClock.getMinutes(), 2) + ' ' +
-					toStr(this.initialClock.getSeconds(), 2);
+				clock.setSeconds(clock.getSeconds() - 1);
+				this.clock_str = toStr(clock.getHours(), 2) + ' ' +
+					toStr(clock.getMinutes(), 2) + ' ' +
+					toStr(clock.getSeconds(), 2);
 			}.bind(this), 1000);
 
 		}
