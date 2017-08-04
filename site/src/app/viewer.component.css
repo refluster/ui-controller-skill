@@ -126,20 +126,20 @@ div.page {
 
 #progress {
 	position: absolute;
-	left: 600px;
 	top: 235px;
+	left: 600px;
 	height: 300px;
 	width: 300px;
 	display: none;
 }
 #progress svg {
+	position: absolute;
+	top: 0;
+	left: 0;
 	display: block;
 	height: 100%;
 	width: 100%;
-	position: absolute;
 	transform: rotate(-90deg);
-	top: 0;
-	left: 0;
 	overflow: visible;
 }
 #progress .base{
@@ -162,7 +162,6 @@ div.page {
 .fadeIn {
 	animation: fadeIn 5s linear 0s 1 normal;
 }
-
 @keyframes fadeIn {
     0% {opacity: 0}
     80% {opacity: 0}
