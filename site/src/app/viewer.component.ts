@@ -14,8 +14,8 @@ export class ViewerComponent implements OnInit {
 	private _el: HTMLElement;
 	private dispVideoBorder: boolean = false;
 	private connection;
-	//private countdownTimer;
-	private initialClock = new Date(1970, 0, 0, 0, 20, 35);
+	private countdownTimer;
+	private initialClock = new Date(1970, 0, 0, 0, 2, 0);
 	private clock_str = '';
 	private currentMovieNumber: number;
 	private month: string;
@@ -127,11 +127,19 @@ export class ViewerComponent implements OnInit {
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			console.log(c);
 			c.style.display = 'block';
+			this.countdownTimer = setInterval(function() {
+				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
+				this.clock_str = toStr(this.initialClock.getHours(), 2) + ' ' +
+					toStr(this.initialClock.getMinutes(), 2) + ' ' +
+					toStr(this.initialClock.getSeconds(), 2);
+			}.bind(this), 1000);
+
 		}
 		if (this.currentMovieNumber == 3) {
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			console.log(c);
 			c.style.display = 'none';
+			clearInterval(this.countdownTimer);
 		}
 	}
 

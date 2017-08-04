@@ -128,11 +128,9 @@ div.page {
 	position: absolute;
 	left: 600px;
 	top: 235px;
-	height: 0;
+	height: 300px;
 	width: 300px;
 	display: none;
-	padding-bottom: 300px;
-	margin-bottom:10px;
 }
 #progress svg {
 	display: block;
