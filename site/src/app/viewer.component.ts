@@ -56,13 +56,8 @@ export class ViewerComponent implements OnInit {
 	}
 
 	toggleDisplayVideoBorder() {
-		let video = this._el.getElementsByTagName('video')[0];
-		if (this.dispVideoBorder) {
-			video.style.border = '';
-		} else {
-			video.style.border = '1px solid red';
-		}
-		this.dispVideoBorder = !this.dispVideoBorder
+		let content = <HTMLElement>this._el.querySelector('#content');
+		content.classList.toggle('border');
 	}
 
 	toggleFlip() {
