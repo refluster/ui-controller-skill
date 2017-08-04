@@ -144,18 +144,18 @@ div.page {
 	left: 0;
 	overflow: visible;
 }
+#progress .base{
+	fill: rgba(0,0,0,0);
+	stroke-width: 10;
+	stroke: #aaa;
+}
 #progress .circle {
 	fill: rgba(0,0,0,0);
-	stroke-width: 50;
+	stroke-width: 10;
 	stroke-dasharray: 0,157;
-}
-#progress .pie {
-	stroke: #aaa;
+	stroke: #fff;
 	animation-name: pie;
 	animation: pie 4s linear;
-}
-#progress .base{
-	fill: #fff;
 }
 @keyframes pie {
 	50%,100% { stroke-dasharray: 0, 0, 157,157}
