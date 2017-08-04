@@ -116,14 +116,6 @@ div.page {
 	text-align: center;
 }
 
-#ball {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-    background: radial-gradient(rgba(255, 255, 255, 0.7) 70%,
-								rgba(255, 255, 255, 0.0) 71%);
-}
-
 #progress {
 	position: absolute;
 	top: 235px;

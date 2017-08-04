@@ -51,45 +51,6 @@ export class ViewerComponent implements OnInit {
 		this.connection.unsubscribe();
 	}
 
-	setSecondCount() {
-		let fps = 10;
-		let ball = <HTMLElement>this._el.querySelector('#ball');
-		let cx = 600;
-		let cy = 650;
-		let radius = 310;
-		this.setSecondCountStopFlag = true;
-
-		var count = 0;
-		var prevRad = 0;
-		function step() {
-			if (this.setSecondCountStopFlag == false) {
-				return;
-			}
-
-			let d = new Date();
-			let n = d.getTime();
-			let rad = 2*Math.PI*(n%1000)/1000;
-
-			let x = Math.floor(cx + Math.sin(rad)*radius);
-			let y = Math.floor(cy - Math.cos(rad)*radius);
-
-			ball.style.top = (y - 10).toString() + 'px';
-			ball.style.left = (x - 10).toString() + 'px';
-
-			// count update alternative for setInterval
-			if (prevRad > rad) {
-				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
-				this.clock_str = toStr(this.initialClock.getHours(), 2) + ' ' +
-					toStr(this.initialClock.getMinutes(), 2) + ' ' +
-					toStr(this.initialClock.getSeconds(), 2);
-			}
-			prevRad = rad;
-
-			window.requestAnimationFrame(step.bind(this));
-		}
-		window.requestAnimationFrame(step.bind(this));
-	}
-
 	adjustPosition() {
 		let bb = this._el.getElementsByTagName('video')[0].getBoundingClientRect();
 		let cx = (bb.left + bb.right)/2;
