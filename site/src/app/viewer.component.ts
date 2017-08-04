@@ -20,7 +20,6 @@ export class ViewerComponent implements OnInit {
 	private month: string;
 	private day: string;
 	private week: string;
-	private setSecondCountStopFlag = false;
 
 	constructor(private websocketService: WebsocketService, el: ElementRef) {
 		this._el = el.nativeElement;
@@ -93,7 +92,6 @@ export class ViewerComponent implements OnInit {
 					toStr(clock.getMinutes(), 2) + ' ' +
 					toStr(clock.getSeconds(), 2);
 			}.bind(this), 1000);
-
 		}
 		if (this.currentMovieNumber == 3) {
 			let c = <HTMLElement>this._el.querySelector('#progress');
