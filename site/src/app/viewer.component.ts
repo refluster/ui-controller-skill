@@ -123,11 +123,16 @@ export class ViewerComponent implements OnInit {
 		(<HTMLElement>m[number - 1]).style.visibility = 'visible';
 		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
 
-		var setTime = 20;
-		let c = <HTMLElement>this._el.getElementsByClassName('circle')[0];
-		c.classList.remove('pie');
-		c.classList.add('pie');
-		c.style.animation = 'pie '+ setTime*2 +'s linear';
+		if (number == 3) {
+			let c = <HTMLElement>this._el.querySelector('#progress');
+			console.log(c);
+			c.style.display = 'block';
+		}
+		if (this.currentMovieNumber == 3) {
+			let c = <HTMLElement>this._el.querySelector('#progress');
+			console.log(c);
+			c.style.display = 'none';
+		}
 	}
 
 	movieSet(number: number) {
