@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:300,400');
+
 div.page {
 	width: 2400px;
 	height: 1440px;
@@ -41,8 +43,6 @@ div.page {
 	width: 1200px;
 	height: 1440px;
 }
-
-@import url('https://fonts.googleapis.com/css?family=Yantramanav:300,400');
 
 #header {
 	position: absolute;
@@ -114,6 +114,7 @@ div.page {
 	width: 100%;
 	font-size: 250px;
 	text-align: center;
+	font-family: 'Yantramanav', sans-serif;
 }
 
 #progress {
