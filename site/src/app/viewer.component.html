@@ -1,7 +1,7 @@
 <div class="page flip180">
   <button (click)="adjustPosition()" class="button">scroll</button>
   <button (click)="toggleDisplayVideoBorder()" class="button">border</button>
-
+  <button (click)="toggleFlip()" class="button">flip</button>
   <button *ngFor="let i of [1,2,3,4]" (click)="movieSet(i)" class="button">movie {{i}}</button>
   <div id="content">
     <div id="header">

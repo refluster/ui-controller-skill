@@ -6,7 +6,8 @@ div.page {
 	background-color: #000;
 	position: relative;
 }
-.flip180 {
+
+.flip {
 	transform:matrix(-1, 0, 0, 1, 0, 0);
 	filter: progid:DXImageTransform.Microsoft.BasicImage(mirror=1);
 }

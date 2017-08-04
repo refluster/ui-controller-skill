@@ -65,6 +65,11 @@ export class ViewerComponent implements OnInit {
 		this.dispVideoBorder = !this.dispVideoBorder
 	}
 
+	toggleFlip() {
+		let content = <HTMLElement>this._el.querySelector('#content');
+		content.classList.toggle('flip');
+	}
+
 	movieChange(number: number) {
 		console.log(number);
 		let m = this._el.getElementsByClassName('movie');
