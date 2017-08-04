@@ -86,7 +86,6 @@ export class ViewerComponent implements OnInit {
 
 		if (number == 3) {
 			let c = <HTMLElement>this._el.querySelector('#progress');
-			console.log(c);
 			c.style.display = 'block';
 			this.countdownTimer = setInterval(function() {
 				this.initialClock.setSeconds(this.initialClock.getSeconds() - 1);
@@ -98,7 +97,6 @@ export class ViewerComponent implements OnInit {
 		}
 		if (this.currentMovieNumber == 3) {
 			let c = <HTMLElement>this._el.querySelector('#progress');
-			console.log(c);
 			c.style.display = 'none';
 			clearInterval(this.countdownTimer);
 		}
