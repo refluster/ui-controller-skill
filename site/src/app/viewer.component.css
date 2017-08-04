@@ -150,15 +150,15 @@ div.page {
 	stroke-dasharray: 0,157;
 }
 #progress .pie {
-	stroke: #00bcac;
+	stroke: #aaa;
 	animation-name: pie;
-	animation: pie 40s linear;
+	animation: pie 4s linear;
 }
 #progress .base{
-	fill: #f9f9f9;
+	fill: #fff;
 }
 @keyframes pie {
-	50%,100% { stroke-dasharray: 157,157,0,0;}
+	50%,100% { stroke-dasharray: 0, 0, 157,157}
 }
 
 .fadeIn {
