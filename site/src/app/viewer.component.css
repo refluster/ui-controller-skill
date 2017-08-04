@@ -134,12 +134,12 @@ div.page {
 	transform: rotate(-90deg);
 	overflow: visible;
 }
-#progress .base{
+#progress .back {
 	fill: rgba(0,0,0,0);
 	stroke-width: 10;
 	stroke: #aaa;
 }
-#progress .circle {
+#progress .front {
 	fill: rgba(0,0,0,0);
 	stroke-width: 10;
 	stroke-dasharray: 628,0;
