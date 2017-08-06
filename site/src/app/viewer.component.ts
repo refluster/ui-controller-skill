@@ -36,7 +36,7 @@ export class ViewerComponent implements OnInit {
 			}
 		});
 		this.currentMovieNumber = 2;
-		this.movieSet(3);
+		this.movieSet(1);
 
 		let weekName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 		let date = new Date();
