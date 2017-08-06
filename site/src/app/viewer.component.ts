@@ -50,7 +50,7 @@ export class ViewerComponent implements OnInit {
 	}
 
 	adjustPosition() {
-		let bb = this._el.getElementsByTagName('video')[0].getBoundingClientRect();
+		let bb = (<HTMLElement>this._el.querySelector('#content')).getBoundingClientRect();
 		let cx = (bb.left + bb.right)/2;
 		scroll(cx - innerWidth/2, bb.top);
 	}
