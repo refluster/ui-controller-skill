@@ -155,11 +155,6 @@ div.page {
 	transform: rotate(-90deg);
 	overflow: visible;
 }
-#progress .back {
-	fill: rgba(0,0,0,0);
-	stroke-width: 100;
-	stroke: #aaa;
-}
 #progress .front {
 	fill: rgba(0,0,0,0);
 	stroke-width: 100;
