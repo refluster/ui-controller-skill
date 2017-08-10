@@ -133,6 +133,7 @@ div.page {
 	height: 300px;
 	width: 300px;
 	display: none;
+	opacity: 0.5;
 }
 #progress svg {
 	position: absolute;

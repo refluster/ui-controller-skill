@@ -36,7 +36,7 @@ export class ViewerComponent implements OnInit {
 			}
 		});
 		this.currentMovieNumber = 2;
-		this.movieSet(3);
+		this.movieSet(1);
 
 		let weekName = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 		let date = new Date();
@@ -50,7 +50,7 @@ export class ViewerComponent implements OnInit {
 	}
 
 	adjustPosition() {
-		let bb = this._el.getElementsByTagName('video')[0].getBoundingClientRect();
+		let bb = (<HTMLElement>this._el.querySelector('#content')).getBoundingClientRect();
 		let cx = (bb.left + bb.right)/2;
 		scroll(cx - innerWidth/2, bb.top);
 	}
