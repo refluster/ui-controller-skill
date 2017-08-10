@@ -139,9 +139,9 @@ div.page {
 
 #progress {
 	position: absolute;
-	top: 235px;
-	left: 600px;
-	height: 300px;
+	top: 236px;
+	left: 595px;
+	height: 290px;
 	width: 300px;
 	display: none;
 }
@@ -157,9 +157,9 @@ div.page {
 }
 #progress .front {
 	fill: rgba(0,0,0,0);
-	stroke-width: 100;
+	stroke-width: 174;
 	stroke-dasharray: 314,0;
-	stroke: #fff;
+	stroke: #000;
 	animation-name: pie;
 	animation: pie 120s linear 0s forwards;
 }
