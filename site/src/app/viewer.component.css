@@ -163,7 +163,7 @@ div.page {
 	stroke-dasharray: 546,0; /* 3.14 x stroke-width */
 	stroke: #000;
 	animation-name: pie;
-	animation: pie 120s linear 0s forwards;
+	animation: pie 300s linear 0s forwards;
 }
 @keyframes pie {
 	100% { stroke-dasharray: 0,546}

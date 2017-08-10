@@ -87,7 +87,7 @@ export class ViewerComponent implements OnInit {
 			header.style.opacity = '0.4';
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'block';
-			let clock = new Date(1970, 0, 0, 0, 2, 0);
+			let clock = new Date(1970, 0, 0, 0, 5, 1);
 			this.countdownTimer = setInterval(function() {
 				clock.setSeconds(clock.getSeconds() - 1);
 				this.clock_str = toStr(clock.getMinutes(), 2) + ' ' + toStr(clock.getSeconds(), 2);
