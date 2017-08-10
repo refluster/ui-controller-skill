@@ -84,7 +84,7 @@ export class ViewerComponent implements OnInit {
 
 		if (number == 3) {
 			let header = <HTMLElement>this._el.querySelector('#header');
-			header.style.opacity = '0.4';
+			header.classList.add('fadeIn04');
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'block';
 			let clock = new Date(1970, 0, 0, 0, 5, 1);
@@ -98,7 +98,7 @@ export class ViewerComponent implements OnInit {
 		}
 		if (this.currentMovieNumber == 3) {
 			let header = <HTMLElement>this._el.querySelector('#header');
-			header.style.opacity = '1.0';
+			header.classList.remove('fadeIn04');
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'none';
 			clearInterval(this.countdownTimer);
