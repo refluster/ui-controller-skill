@@ -156,6 +156,8 @@ div.page {
 	overflow: visible;
 }
 #progress .front {
+	transform: matrix(1, 0, 0, -1, 0, 0);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(mirror=1);
 	fill: rgba(0,0,0,0);
 	stroke-width: 174;
 	stroke-dasharray: 546,0; /* 3.14 x stroke-width */
