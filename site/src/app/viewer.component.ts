@@ -88,9 +88,7 @@ export class ViewerComponent implements OnInit {
 			let clock = new Date(1970, 0, 0, 0, 2, 0);
 			this.countdownTimer = setInterval(function() {
 				clock.setSeconds(clock.getSeconds() - 1);
-				this.clock_str = toStr(clock.getHours(), 2) + ' ' +
-					toStr(clock.getMinutes(), 2) + ' ' +
-					toStr(clock.getSeconds(), 2);
+				this.clock_str = toStr(clock.getMinutes(), 2) + ' ' + toStr(clock.getSeconds(), 2);
 			}.bind(this), 1000);
 		}
 		if (this.currentMovieNumber == 3) {

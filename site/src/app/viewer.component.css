@@ -119,9 +119,10 @@ div.page {
 	position: absolute;
 	color: white;
 	left: 0px;
-	top: 700px;
+	top: 400px;
 	width: 100%;
-	font-size: 250px;
+	font-size: 354px;
+	font-weight: normal;
 	text-align: center;
 	font-family: 'Yantramanav', sans-serif;
 }
