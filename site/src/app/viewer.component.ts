@@ -94,7 +94,6 @@ export class ViewerComponent implements OnInit {
 			}.bind(this), 1000);
 			let info = <HTMLElement>this._el.querySelector('#overlay-info');
 			info.classList.add('fadeIn');
-			info.style.visibility = 'visible';
 		}
 		if (this.currentMovieNumber == 3) {
 			let header = <HTMLElement>this._el.querySelector('#header');
@@ -104,7 +103,6 @@ export class ViewerComponent implements OnInit {
 			clearInterval(this.countdownTimer);
 			let info = <HTMLElement>this._el.querySelector('#overlay-info');
 			info.classList.remove('fadeIn');
-			info.style.visibility = 'hidden';
 		}
 	}
 
