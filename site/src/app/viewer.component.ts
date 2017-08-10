@@ -83,6 +83,8 @@ export class ViewerComponent implements OnInit {
 		(<HTMLElement>m[number - 1]).getElementsByTagName('video')[0].play();
 
 		if (number == 3) {
+			let header = <HTMLElement>this._el.querySelector('#header');
+			header.style.opacity = '0.4';
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'block';
 			let clock = new Date(1970, 0, 0, 0, 2, 0);
@@ -92,6 +94,8 @@ export class ViewerComponent implements OnInit {
 			}.bind(this), 1000);
 		}
 		if (this.currentMovieNumber == 3) {
+			let header = <HTMLElement>this._el.querySelector('#header');
+			header.style.opacity = '1.0';
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'none';
 			clearInterval(this.countdownTimer);
