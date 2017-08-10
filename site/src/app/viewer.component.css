@@ -115,6 +115,16 @@ div.page {
 	background-color: #777;
 }
 
+#waku {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#pie-background {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 #clock {
 	position: absolute;
 	color: white;
@@ -134,7 +144,6 @@ div.page {
 	height: 300px;
 	width: 300px;
 	display: none;
-	opacity: 0.5;
 }
 #progress svg {
 	position: absolute;
