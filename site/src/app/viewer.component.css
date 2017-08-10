@@ -169,10 +169,10 @@ div.page {
 }
 
 .fadeIn {
-	animation: fadeIn 5s linear 0s 1 normal;
+	animation: fadeIn 3s linear 0s 1 normal;
 }
 @keyframes fadeIn {
     0% {opacity: 0}
-    80% {opacity: 0}
+    75% {opacity: 0}
     100% {opacity: 1}
 }

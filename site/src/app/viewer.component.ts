@@ -92,6 +92,9 @@ export class ViewerComponent implements OnInit {
 				clock.setSeconds(clock.getSeconds() - 1);
 				this.clock_str = toStr(clock.getMinutes(), 2) + ' ' + toStr(clock.getSeconds(), 2);
 			}.bind(this), 1000);
+			let info = <HTMLElement>this._el.querySelector('#overlay-info');
+			info.classList.add('fadeIn');
+			info.style.visibility = 'visible';
 		}
 		if (this.currentMovieNumber == 3) {
 			let header = <HTMLElement>this._el.querySelector('#header');
@@ -99,6 +102,9 @@ export class ViewerComponent implements OnInit {
 			let c = <HTMLElement>this._el.querySelector('#progress');
 			c.style.display = 'none';
 			clearInterval(this.countdownTimer);
+			let info = <HTMLElement>this._el.querySelector('#overlay-info');
+			info.classList.remove('fadeIn');
+			info.style.visibility = 'hidden';
 		}
 	}
 
