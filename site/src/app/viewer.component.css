@@ -61,43 +61,43 @@ div.page {
 	top: 0;
 	bottom: 0;
 	width: 1200px;
-	height: 380px;
+	height: 375px;
 	background-image: url(/assets/img/header.png);
 	background-size: cover;
 	font-family: 'Yantramanav', sans-serif;
 }
 
 #month {
-	font-size: 122px;
+	font-size: 90px;
 	color: #fff;
 	position: absolute;
-	top: 30px;
+	top: 133px;
 	left: 0px;
-	width: 280px;
+	width: 100px;
 	text-align: center;
-	font-weidht: 400;
+	font-weidht: bold;
 }
 
 #day {
-	font-size: 122px;
+	font-size: 90px;
 	color: #fff;
 	position: absolute;
-	top: 140px;
+	top: 213px;
 	left: 0px;
-	width: 280px;
+	width: 100px;
 	text-align: center;
-	font-weidht: 400;
+	font-weidht: bold;
 }
 
 #week {
-	font-size: 40px;
+	font-size: 53px;
 	color: #fff;
 	position: absolute;
-	top: 270px;
+	top: 305px;
 	left: 0px;
-	width: 280px;
+	width: 100px;
 	text-align: center;
-	font-weidht: 300;
+	font-weidht: bold;
 }
 
 .movie {
@@ -111,7 +111,7 @@ div.page {
 	bottom: 0;
 	object-fit: fill;
 	width: 1200px;
-	height: 1060px;
+	height: 1065px;
 	background-color: #777;
 }
 
