@@ -1,0 +1,4 @@
+ControlDeviceIntent turn {ctrl} the {device}
+StopIntent no
+OkayIntent okay
+OkayIntent yes

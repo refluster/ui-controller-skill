@@ -1,0 +1,23 @@
+{
+	"intents": [
+		{
+			"intent": "ControlDeviceIntent",
+			"slots": [
+				{
+					"name": "ctrl",
+					"type": "LIST_OF_CTRLS"
+				},
+				{
+					"name": "device",
+					"type": "LIST_OF_DEVICES"
+				}
+			]
+		},
+		{
+			"intent": "StopIntent"
+		},
+		{
+			"intent": "OkayIntent"
+		}
+	]
+}
