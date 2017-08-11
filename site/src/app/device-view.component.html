@@ -2,7 +2,7 @@
 <ul>
   <li>tv
     <ul>
-      <li>power: {{tv.poweron == true? 'on': 'off'}}</li>
+      <li>power: {{tv.power}}</li>
       <li>channel: {{tv.channel}}</li>
     </ul>
   </li>
@@ -11,8 +11,8 @@
 <h3>controller</h3>
 <h4>TV</h4>
 <div class="grid">
-  <a *ngFor="let c of [[true, 'on'], [false, 'off']]" (click)="devctrl({tv: {poweron: c[0]}})" class="button">
-    {{c[1]}}
+  <a *ngFor="let c of ['on', 'off']" (click)="devctrl({tv: {power: c}})" class="button">
+    {{c}}
   </a>
 </div>
 <div class="grid">

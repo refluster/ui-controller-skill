@@ -14,8 +14,8 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private devctrlUrl = 'http://52.198.86.179:8100/devctrl';
 	private headers = new Headers({'Content-Type': 'application/json'});
 	private connection;
-	private tv: {poweron: boolean; channel: number;} = {poweron: false, channel: 1};
-	private recorder: {poweron: boolean; mode: string;} = {poweron: false, mode: 'list'};
+	private tv: {power: string; channel: number;} = {power: 'off', channel: 1};
+	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
 
 	constructor(private websocketService: WebsocketService,
 				private http: Http){}
@@ -26,16 +26,16 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 			console.log(data);
 			data = data['devctrl'];
 			if (data['tv'] != undefined) {
-				if (data['tv']['poweron'] != undefined) {
-					this.tv.poweron = data['tv']['poweron'];
+				if (data['tv']['power'] != undefined) {
+					this.tv.power = data['tv']['power'];
 				}
 				if (data['tv']['channel'] != undefined) {
 					this.tv.channel = data['tv']['channel'];
 				}
 			}
 			if (data['recorder'] != undefined) {
-				if (data['recorder']['poweron'] != undefined) {
-					this.recorder.poweron = data['recorder']['poweron'];
+				if (data['recorder']['power'] != undefined) {
+					this.recorder.power = data['recorder']['power'];
 				}
 				if (data['recorder']['mode'] != undefined) {
 					this.recorder.mode = data['recorder']['mode'];
