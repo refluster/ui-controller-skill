@@ -15,7 +15,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private headers = new Headers({'Content-Type': 'application/json'});
 	private connection;
 	private tv: {poweron: boolean; channel: number;} = {poweron: false, channel: 1};
-	private recorder: {poweron: boolean;};
+	private recorder: {poweron: boolean; mode: string;} = {poweron: false, mode: 'list'};
 
 	constructor(private websocketService: WebsocketService,
 				private http: Http){}
@@ -31,6 +31,14 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 				}
 				if (data['tv']['channel'] != undefined) {
 					this.tv.channel = data['tv']['channel'];
+				}
+			}
+			if (data['recorder'] != undefined) {
+				if (data['recorder']['poweron'] != undefined) {
+					this.recorder.poweron = data['recorder']['poweron'];
+				}
+				if (data['recorder']['mode'] != undefined) {
+					this.recorder.mode = data['recorder']['mode'];
 				}
 			}
 		});
