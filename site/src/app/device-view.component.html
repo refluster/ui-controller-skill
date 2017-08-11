@@ -6,10 +6,16 @@
       <li>channel: {{tv.channel}}</li>
     </ul>
   </li>
+  <li>recorder
+    <ul>
+      <li>power: {{recorder.power}}</li>
+      <li>channel: {{recorder.mode}}</li>
+    </ul>
+  </li>
 </ul>
 <hr>
 <h3>controller</h3>
-<h4>TV</h4>
+<h4>tv</h4>
 <div class="grid">
   <a *ngFor="let c of ['on', 'off']" (click)="devctrl({tv: {power: c}})" class="button">
     {{c}}
@@ -17,6 +23,17 @@
 </div>
 <div class="grid">
   <a *ngFor="let c of [1,2,3,4,5,6,7,8,9,10,11,12]" (click)="devctrl({tv: {channel: c}})" class="button">
+    {{c}}
+  </a>
+</div>
+<h4>recorder</h4>
+<div class="grid">
+  <a *ngFor="let c of ['on', 'off']" (click)="devctrl({recorder: {power: c}})" class="button">
+    {{c}}
+  </a>
+</div>
+<div class="grid">
+  <a *ngFor="let c of ['list', 'play']" (click)="devctrl({recorder: {mode: c}})" class="button">
     {{c}}
   </a>
 </div>
