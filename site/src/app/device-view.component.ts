@@ -14,7 +14,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private devctrlUrl = 'http://52.198.86.179:8100/devctrl';
 	private headers = new Headers({'Content-Type': 'application/json'});
 	private connection;
-	private tv: {power: string; channel: number;} = {power: 'off', channel: 1};
+	private tv: {power: string; channel: string;} = {power: 'off', channel: '1'};
 	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
 
 	constructor(private websocketService: WebsocketService,
