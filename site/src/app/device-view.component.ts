@@ -7,7 +7,7 @@ import { WebsocketService }       from './websocket.service';
 	providers: [WebsocketService],
 	selector: 'device-view',
 	templateUrl: 'device-view.component.html',
-	styleUrls: ['./device-view.component.css'],
+	styleUrls: ['./bootstrap-4.0.0-beta-dist.min.css', './device-view.component.css'],
 })
 
 export class DeviceViewComponent implements OnInit, OnDestroy {

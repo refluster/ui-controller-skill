@@ -18,14 +18,13 @@
 	width: 100vw;
 	height: 100vh;
 	padding: 0px;
-	color: #222;
+	color: #626262;
 	font-size: 40px;
 }
 
 #content .view {
 	height: 100%;
 	width: 100%;
-	border: 3px solid red;
 }
 
 #content .info {
@@ -33,9 +32,9 @@
 	right: 0;
 	top: 0;
 	height: 100%;
-	width: 300px;
-	border: 1px solid green;
+	width: 400px;
 	zIndex: 1;
+	margin: 40px 0px;
 }
 
 .view .tv .img {
@@ -52,4 +51,20 @@
 	background-image: url(/assets/img/recorder.jpg);
 	background-size: contain;
     background-repeat: no-repeat;
+}
+
+.info .device {
+	margin-bottom: 64px;
+}
+
+.info .device .title {
+	margin: 20px 0px;
+}
+
+.info .device .table {
+	padding-left: 24px;
+}
+
+td {
+	text-align: right;
 }
