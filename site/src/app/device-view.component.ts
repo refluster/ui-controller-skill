@@ -14,7 +14,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private devctrlUrl = 'http://52.198.86.179:8100/devctrl';
 	private headers = new Headers({'Content-Type': 'application/json'});
 	private connection;
-	private tv: {power: string; channel: string;} = {power: 'off', channel: '1'};
+	private tv: {power: string; input: string;} = {power: 'off', input: '1ch'};
 	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
 
 	constructor(private websocketService: WebsocketService,
@@ -29,8 +29,8 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 				if (data['tv']['power'] != undefined) {
 					this.tv.power = data['tv']['power'];
 				}
-				if (data['tv']['channel'] != undefined) {
-					this.tv.channel = data['tv']['channel'];
+				if (data['tv']['input'] != undefined) {
+					this.tv.input = data['tv']['input'];
 				}
 			}
 			if (data['recorder'] != undefined) {
