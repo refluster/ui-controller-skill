@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Yantramanav:400,500,600,700,800,900'); 
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:400,500,700');
 
 .button {
 	display: inline-block;
@@ -95,7 +95,7 @@
 
 .info .device .title {
 	margin: 10px 0px;
-	font-weight: 800;
+	font-weight: 700;
 	font-size: 30px;
 }
 
