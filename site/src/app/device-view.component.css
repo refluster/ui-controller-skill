@@ -13,3 +13,26 @@
 .grid {
 	margin: 8px 4px;
 }
+
+#content {
+	width: 100vw;
+	height: 640px;
+	background-color: yellow;
+	padding: 0px;
+}
+
+#content #view {
+	height: 100%;
+	width: 100%;
+	border: 3px solid red;
+}
+
+#content #info {
+	position: fixed;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 300px;
+	border: 1px solid green;
+	zIndex: 1;
+}
