@@ -23,6 +23,7 @@
 }
 
 #content .view {
+	position: relative;
 	height: 100%;
 	width: 100%;
 }
@@ -35,6 +36,18 @@
 	width: 300px;
 	zIndex: 1;
 	margin: 40px 32px;
+}
+
+.view .tv {
+	position: absolute;
+	top: 40px;
+	left: 100px;
+}
+
+.view .recorder {
+	position: absolute;
+	top: 1000px;
+	left: 280px;
 }
 
 .view .tv .img {
