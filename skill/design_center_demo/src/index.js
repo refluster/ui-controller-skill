@@ -26,7 +26,7 @@ var handlers = {
 	'LeaveIntent': function() {
 		console.log('============ Leave ===========')
 		httppost('/movieset', {movie: 4}, function() {
-			httppost('/devctrl', {light: {cmd: 'off', delay: 5}}, function() {
+			httppost('/devctrl', {light2: {cmd: 'off', delay: 5}}, function() {
 				this.emit(':tell', 'Okay. Turning off the light and air conditioner in a minute. See you later.');
 			}.bind(this));
 		}.bind(this));

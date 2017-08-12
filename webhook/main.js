@@ -39,7 +39,7 @@ app.post('/devctrl', (req, res) => {
 		setTimeout(callback, delay*1000);
 	}
 
-	if (req.body.light != undefined) {
+	if (req.body.light2 != undefined) {
 		var r = req.body.light;
 		if (r.cmd == "on" || r.cmd == "off") {
 			sendCommandDelay(r.delay, () => {

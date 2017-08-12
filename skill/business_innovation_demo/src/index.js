@@ -22,7 +22,7 @@ var handlers = {
 		console.log(' device : ' + device);
 		switch (device) {
 		case 'panel light':
-			httppost('52.198.86.179', 8100, '/devctrl', {light: {cmd: ctrl, delay: 0}}, function() {
+			httppost('52.198.86.179', 8100, '/devctrl', {light2: {cmd: ctrl, delay: 0}}, function() {
 				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the panel light. Any request?');
 			}.bind(this));
 			break;
