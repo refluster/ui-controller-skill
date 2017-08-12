@@ -19,7 +19,7 @@ var handlers = {
 	'RouteIntent': function() {
 		console.log('============ Route ===========')
 		httppost('/movieset', {movie: 3}, function() {
-			this.emit(':tell', 'Okay <break time="3s"/> Please leave home within 2 minutes.');
+			this.emit(':tell', 'Okay <break time="3s"/> Please leave home within 5 minutes.');
 		}.bind(this));
 		console.log('===== Route end')
 	},
