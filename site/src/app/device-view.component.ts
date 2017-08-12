@@ -16,6 +16,9 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private connection;
 	private tv: {power: string; input: string;} = {power: 'off', input: '1ch'};
 	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
+	private ac: {power: string; temp: string;} = {power: 'off', temp: '28'};
+	private light: {scene: string;} = {scene: 'off'};
+	private shutter: {status: string;} = {status: 'open'};
 	private tvChannels = ['1ch','2ch','3ch','4ch','5ch','6ch','7ch','8ch','9ch','10ch','11ch','12ch','rec'];
 
 	constructor(private websocketService: WebsocketService,
@@ -40,6 +43,24 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 				}
 				if (data['recorder']['mode'] != undefined) {
 					this.recorder.mode = data['recorder']['mode'];
+				}
+			}
+			if (data['ac'] != undefined) {
+				if (data['ac']['power'] != undefined) {
+					this.ac.power = data['ac']['power'];
+				}
+				if (data['ac']['temp'] != undefined) {
+					this.ac.temp = data['ac']['temp'];
+				}
+			}
+			if (data['light'] != undefined) {
+				if (data['light']['scene'] != undefined) {
+					this.light.scene = data['light']['scene'];
+				}
+			}
+			if (data['shutter'] != undefined) {
+				if (data['shutter']['status'] != undefined) {
+					this.shutter.status = data['shutter']['status'];
 				}
 			}
 		});
