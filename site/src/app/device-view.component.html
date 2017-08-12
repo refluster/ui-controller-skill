@@ -1,8 +1,15 @@
 <div id="content">
   <nav class="view">
     <div class="tv">
-      <div class="img"></div>
-      <div class="display">
+      <div class="img">
+        <div *ngIf="tv.power == 'on'" class="display">
+          <div *ngIf="tv.input != 'rec'" class="ch">
+            {{tv.input}}
+          </div>
+          <div *ngIf="tv.input == 'rec'">
+            rec
+          </div>
+        </div>
       </div>
     </div>
     <div class="recorder">

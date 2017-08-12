@@ -70,6 +70,14 @@
 	background-color: green;
 }
 
+.view .tv .img .ch {
+	font-size: 160px;
+	line-height: 690px;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+}
+
 .view .recorder .img {
 	width: 900px;
 	height: 360px;
