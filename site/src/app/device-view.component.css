@@ -16,18 +16,18 @@
 
 #content {
 	width: 100vw;
-	height: 640px;
+	height: 100vh;
 	background-color: yellow;
 	padding: 0px;
 }
 
-#content #view {
+#content .view {
 	height: 100%;
 	width: 100%;
 	border: 3px solid red;
 }
 
-#content #info {
+#content .info {
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -35,4 +35,20 @@
 	width: 300px;
 	border: 1px solid green;
 	zIndex: 1;
+}
+
+.view .tv .img {
+	width: 1280px;
+	height: 960px;
+	background-image: url(/assets/img/tv.jpg);
+	background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.view .recorder .img {
+	width: 900px;
+	height: 360px;
+	background-image: url(/assets/img/recorder.jpg);
+	background-size: contain;
+    background-repeat: no-repeat;
 }
