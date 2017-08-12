@@ -60,17 +60,17 @@
 
 .view .tv .display {
 	position: absolute;
-	top: 120px;
-	left: 30px;
-	width: 1220px;
-	height: 690px;
+	top: 80px;
+	left: 16px;
+	width: 848px;
+	height: 480px;
 	background-color: #3F51B5;
 }
 
 .view .tv .ch {
 	display: absolute;
-	font-size: 160px;
-	line-height: 690px;
+	font-size: 80px;
+	line-height: 480px;
 	color: #fff;
 	margin: auto;
 	text-align: center;
