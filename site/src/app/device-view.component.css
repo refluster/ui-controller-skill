@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Yantramanav:400,500,600,700,800,900'); 
+
 .button {
 	display: inline-block;
 	line-height: 28px;
@@ -18,7 +20,8 @@
 	width: 100vw;
 	height: 100vh;
 	color: #868686;
-	font-size: 24px;
+	font-size: 28px;
+	font-family: 'Yantramanav', sans-serif;
 }
 
 #content .view {
@@ -92,8 +95,16 @@
 
 .info .device .title {
 	margin: 10px 0px;
+	font-weight: 800;
+	font-size: 30px;
 }
 
-td {
+.info .device td {
 	text-align: right;
+	font-weight: 500;
+}
+
+.info .device th {
+	font-weight: 500;
+	color: #aaa;
 }
