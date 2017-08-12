@@ -71,6 +71,7 @@
 }
 
 .view .tv .img .ch {
+	display: absolute;
 	font-size: 160px;
 	line-height: 690px;
 	color: #fff;
@@ -78,7 +79,7 @@
 	text-align: center;
 }
 
-.view .tv .img .rec {
+.view .tv .img .rec .list {
 	padding: 100px 120px;
 }
 

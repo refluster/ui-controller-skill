@@ -7,7 +7,7 @@
             {{tv.input}}
           </div>
           <div *ngIf="tv.input == 'rec' && recorder.power == 'on'" class="rec">
-            <div *ngIf="recorder.mode == 'list'">
+            <div *ngIf="recorder.mode == 'list'" class="list">
               <div class="title">saved titles</div>
               <ul class="list-group">
                 <li class="list-group-item disabled">Cras justo odio</li>
@@ -17,7 +17,7 @@
                 <li class="list-group-item">Vestibulum at eros</li>
               </ul>
             </div>
-            <div *ngIf="recorder.mode == 'play'">
+            <div *ngIf="recorder.mode == 'play'" class="ch">
               MOVIE
             </div>
           </div>
