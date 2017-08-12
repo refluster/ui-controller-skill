@@ -78,6 +78,16 @@
 	text-align: center;
 }
 
+.view .tv .img .rec {
+	padding: 100px 120px;
+}
+
+.view .tv .img .rec .title {
+	font-size: 60px;
+	color: #fff;
+	margin: 8px 0px;
+}
+
 .view .recorder .img {
 	width: 900px;
 	height: 360px;
