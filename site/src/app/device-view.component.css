@@ -52,6 +52,11 @@
 	position: absolute;
 	top: 600px;
 	left: 280px;
+	width: 640px;
+	height: 208px;
+	background-image: url(/assets/img/recorder.jpg);
+	background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .view .tv .display {
@@ -80,14 +85,6 @@
 	font-size: 60px;
 	color: #fff;
 	margin: 8px 0px;
-}
-
-.view .recorder .img {
-	width: 640px;
-	height: 208px;
-	background-image: url(/assets/img/recorder.jpg);
-	background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .info .device {
