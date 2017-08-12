@@ -32,9 +32,13 @@ var handlers = {
 			}.bind(this));
 			break;
 		case 'recorder':
-			httppost('52.198.86.179', 8100, '/devctrl', {tv: {power: ctrl, delay: 0}, recorder: {power: ctrl, delay: 0}}, function() {
-				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder. There are three titles. Since you are free until the 9 o\'clock, how about watching a movie?');
-			}.bind(this));
+			httppost('52.198.86.179', 8100, '/devctrl',
+					 {tv: {power: ctrl, delay: 0}, recorder: {power: ctrl, delay: 0}},
+					 function() {
+						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder.' +
+								   'There are three titles.' +
+								   'Since you are free until the 9 o\'clock, how about watching a movie?');
+					 }.bind(this));
 			break;
 		default:
 			console.log('============ default ===========');
@@ -51,7 +55,8 @@ var handlers = {
 	'OkayIntent': function() {
 		console.log('============ Okay ===========');
 		httppost('52.198.86.179', 8100, '/devctrl', {recorder: {mode: 'play'}}, function() {
-			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
+			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
+					  'setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
 		}.bind(this));
 		console.log('============ Okay End ===========');
 	},
