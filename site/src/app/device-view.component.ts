@@ -16,6 +16,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private connection;
 	private tv: {power: string; input: string;} = {power: 'off', input: '1ch'};
 	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
+	private tvChannels = ['1ch','2ch','3ch','4ch','5ch','6ch','7ch','8ch','9ch','10ch','11ch','12ch','rec'];
 
 	constructor(private websocketService: WebsocketService,
 				private http: Http){}

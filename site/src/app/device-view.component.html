@@ -105,7 +105,7 @@
   </a>
 </div>
 <div class="grid">
-  <a *ngFor="let c of ['1ch','2ch','3ch','4ch','5ch','6ch','7ch','8ch','9ch','10ch','11ch','12ch','rec']" (click)="devctrl({tv: {input: c}})" class="button">
+  <a *ngFor="let c of tvChannels" (click)="devctrl({tv: {input: c}})" class="button">
     {{c}}
   </a>
 </div>
