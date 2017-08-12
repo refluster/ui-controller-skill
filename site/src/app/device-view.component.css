@@ -40,24 +40,18 @@
 	position: absolute;
 	top: 40px;
 	left: 100px;
+	border: 1px solid red;
+	width: 880px;
+	height: 660px;
+	background-image: url(/assets/img/tv.jpg);
+	background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .view .recorder {
 	position: absolute;
 	top: 600px;
 	left: 280px;
-}
-
-.view .tv .img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	border: 1px solid red;
-	width: 880px;
-	height: 660px; /* (* (/ 960 1280.0) 880) */
-	background-image: url(/assets/img/tv.jpg);
-	background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .view .tv .display {
@@ -69,7 +63,7 @@
 	background-color: #3F51B5;
 }
 
-.view .tv .img .ch {
+.view .tv .ch {
 	display: absolute;
 	font-size: 160px;
 	line-height: 690px;
@@ -78,11 +72,11 @@
 	text-align: center;
 }
 
-.view .tv .img .rec .list {
+.view .tv .rec .list {
 	padding: 100px 120px;
 }
 
-.view .tv .img .rec .title {
+.view .tv .rec .title {
 	font-size: 60px;
 	color: #fff;
 	margin: 8px 0px;

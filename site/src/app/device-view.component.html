@@ -1,25 +1,23 @@
 <div id="content">
   <nav class="view">
     <div class="tv">
-      <div class="img">
-        <div *ngIf="tv.power == 'on'" class="display">
-          <div *ngIf="tv.input != 'rec'" class="ch">
-            {{tv.input}}
-          </div>
-          <div *ngIf="tv.input == 'rec' && recorder.power == 'on'" class="rec">
-            <div *ngIf="recorder.mode == 'list'" class="list">
-              <div class="title">saved titles</div>
-              <ul class="list-group">
-                <li class="list-group-item disabled">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
+      <div *ngIf="tv.power == 'on'" class="display">
+        <div *ngIf="tv.input != 'rec'" class="ch">
+          {{tv.input}}
+        </div>
+        <div *ngIf="tv.input == 'rec' && recorder.power == 'on'" class="rec">
+          <div *ngIf="recorder.mode == 'list'" class="list">
+            <div class="title">saved titles</div>
+            <ul class="list-group">
+              <li class="list-group-item disabled">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
                 <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
                 <li class="list-group-item">Vestibulum at eros</li>
-              </ul>
-            </div>
-            <div *ngIf="recorder.mode == 'play'" class="ch">
-              MOVIE
-            </div>
+            </ul>
+          </div>
+          <div *ngIf="recorder.mode == 'play'" class="ch">
+            MOVIE
           </div>
         </div>
       </div>
