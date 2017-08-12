@@ -41,9 +41,7 @@ var handlers = {
 					 }.bind(this));
 			break;
 		default:
-			console.log('============ default ===========');
 			this.emit(':tell', 'Unknown device. Good bye.');
-			console.log('============ default ===========');
 		}
 		console.log('===== Control Device end');
 	},
