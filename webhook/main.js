@@ -62,6 +62,16 @@ app.post('/devctrl', (req, res) => {
 		console.log({devctrl: {recorder: r}});
 		io.emit('device-view', {devctrl: {recorder: r}});
 	}
+	if (req.body.ac != undefined) {
+		var r = req.body.ac;
+		console.log({devctrl: {ac: r}});
+		io.emit('device-view', {devctrl: {ac: r}});
+	}
+	if (req.body.shutter != undefined) {
+		var r = req.body.shutter;
+		console.log({devctrl: {shutter: r}});
+		io.emit('device-view', {devctrl: {shutter: r}});
+	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[devctrl]');
 });
