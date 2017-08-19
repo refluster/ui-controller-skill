@@ -1,5 +1,5 @@
 <div id="content">
-  <nav class="view">
+  <div class="view">
     <div class="tv">
       <div *ngIf="tv.power == 'on'" class="display">
         <div *ngIf="tv.input != 'rec'" class="ch">
@@ -24,9 +24,8 @@
     </div>
     <div class="recorder">
     </div>
-  </nav>
-  <div class="info">
-
+  </div>
+  <nav class="info">
     <div class="device">
       <div class="title">tv</div>
       <table class="table table-sm">
@@ -94,7 +93,7 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </nav>
 </div>
 
 <h3>controller</h3>
