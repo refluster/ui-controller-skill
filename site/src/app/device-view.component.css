@@ -1,21 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Yantramanav:400,500,700');
 
-.button {
-	display: inline-block;
-	line-height: 28px;
-	height: 28px;
-	width: 32px;
-	background-color: #607D8B;
-	color: #eee;
-	border-radius: 2px;
-	text-align: center;
-	margin: 4px 2px;
-}
-
-.grid {
-	margin: 8px 4px;
-}
-
 #content {
 	width: 100vw;
 	height: 100vh;
