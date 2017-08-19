@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Headers, Http } from '@angular/http';
 import { WebsocketService }       from './websocket.service';
 
 @Component({
@@ -11,18 +10,14 @@ import { WebsocketService }       from './websocket.service';
 })
 
 export class DeviceViewComponent implements OnInit, OnDestroy {
-	private devctrlUrl = 'http://52.198.86.179:8100/devctrl';
-	private headers = new Headers({'Content-Type': 'application/json'});
 	private connection;
 	private tv: {power: string; input: string;} = {power: 'off', input: '1ch'};
 	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
 	private ac: {power: string; temp: string;} = {power: 'off', temp: '28'};
 	private light: {scene: string;} = {scene: 'off'};
 	private shutter: {status: string;} = {status: 'open'};
-	private tvChannels = ['1ch','2ch','3ch','4ch','5ch','6ch','7ch','8ch','9ch','10ch','11ch','12ch','rec'];
 
-	constructor(private websocketService: WebsocketService,
-				private http: Http){}
+	constructor(private websocketService: WebsocketService){}
 
 	ngOnInit(): void {
 		this.websocketService.connect('hoge=hoge');
@@ -64,18 +59,6 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 				}
 			}
 		});
-	}
-
-	private handleError(error: any): Promise<any> {
-		console.error('an error occured', error);
-		return Promise.reject(error.message || error);
-	}
-
-	devctrl(data) {
-		return this.http.post(this.devctrlUrl, JSON.stringify(data), {headers: this.headers})
-			.toPromise()
-			.then(() => {})
-			.catch(this.handleError);
 	}
 
 	ngOnDestroy() {
