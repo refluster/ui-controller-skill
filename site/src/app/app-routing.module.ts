@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewerComponent } from './viewer.component';
 import { ControllerComponent } from './controller.component';
 import { DeviceViewComponent } from './device-view.component';
+import { DeviceControllerComponent } from './device-controller.component';
 
 const routes: Routes = [
 	{
@@ -14,6 +15,9 @@ const routes: Routes = [
 	}, {
 		path: 'device-view',
 		component: DeviceViewComponent
+	}, {
+		path: 'device-controller',
+		component: DeviceControllerComponent
 	}, {
 		path: '',
 		redirectTo: '/viewer',
