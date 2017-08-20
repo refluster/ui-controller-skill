@@ -43,32 +43,39 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 				}
 				if (data['tv']['input'] != undefined) {
 					this.tv.input = data['tv']['input'];
+					this.updateElem('#tv-input');
 				}
 			}
 			if (data['recorder'] != undefined) {
 				if (data['recorder']['power'] != undefined) {
 					this.recorder.power = data['recorder']['power'];
+					this.updateElem('#recorder-power');
 				}
 				if (data['recorder']['mode'] != undefined) {
 					this.recorder.mode = data['recorder']['mode'];
+					this.updateElem('#recorder-mode');
 				}
 			}
 			if (data['ac'] != undefined) {
 				if (data['ac']['power'] != undefined) {
 					this.ac.power = data['ac']['power'];
+					this.updateElem('#ac-power');
 				}
 				if (data['ac']['temp'] != undefined) {
 					this.ac.temp = data['ac']['temp'];
+					this.updateElem('#ac-temp');
 				}
 			}
 			if (data['light'] != undefined) {
 				if (data['light']['scene'] != undefined) {
 					this.light.scene = data['light']['scene'];
+					this.updateElem('#light-scene');
 				}
 			}
 			if (data['shutter'] != undefined) {
 				if (data['shutter']['status'] != undefined) {
 					this.shutter.status = data['shutter']['status'];
+					this.updateElem('#shutter-status');
 				}
 			}
 		});
