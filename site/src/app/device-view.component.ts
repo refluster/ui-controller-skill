@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { WebsocketService }       from './websocket.service';
 
@@ -10,6 +10,7 @@ import { WebsocketService }       from './websocket.service';
 })
 
 export class DeviceViewComponent implements OnInit, OnDestroy {
+	private _el: HTMLElement;
 	private connection;
 	private tv: {power: string; input: string;} = {power: 'off', input: '1ch'};
 	private recorder: {power: string; mode: string;} = {power: 'off', mode: 'list'};
@@ -17,9 +18,12 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 	private light: {scene: string;} = {scene: 'off'};
 	private shutter: {status: string;} = {status: 'open'};
 
-	constructor(private websocketService: WebsocketService){}
+	constructor(private websocketService: WebsocketService, el: ElementRef) {
+		this._el = el.nativeElement;
+	}
 
 	ngOnInit(): void {
+		console.log('hoge');
 		this.websocketService.connect('hoge=hoge');
 		this.connection = this.websocketService.on('device-view').subscribe(data => {
 			console.log(data);
@@ -27,6 +31,8 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 			if (data['tv'] != undefined) {
 				if (data['tv']['power'] != undefined) {
 					this.tv.power = data['tv']['power'];
+					let e = (<HTMLElement>this._el.querySelector('#tv-power'));
+					e.classList.toggle('change-animation');
 				}
 				if (data['tv']['input'] != undefined) {
 					this.tv.input = data['tv']['input'];

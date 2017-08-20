@@ -92,3 +92,23 @@
 	font-weight: 500;
 	color: #aaa;
 }
+
+.change-animation {
+	animation: change-animation 2s linear 0s 1 forwards;
+}
+
+@keyframes change-animation {
+    0% {
+		background-color: rgba(0,0,0,1);
+		color: white;
+	}
+    50% {
+		background-color: rgba(0,0,0,.5);
+		color: black;
+	}
+    100% {
+		background-color: rgba(0,0,0,0);
+		color: black;
+	}
+}
+
