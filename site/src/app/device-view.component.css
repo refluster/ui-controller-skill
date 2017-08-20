@@ -94,21 +94,20 @@
 }
 
 .change-animation {
-	animation: change-animation 2s linear 0s 1 forwards;
+	animation: change-animation 1s linear 0s 1;
 }
 
 @keyframes change-animation {
     0% {
 		background-color: rgba(0,0,0,.5);
-		color: white;
+		color: #fff;
 	}
-    50% {
-		background-color: rgba(0,0,0,.25);
-		color: black;
+    70% {
+		background-color: rgba(0,0,0,.1);
+		color: #fff;
 	}
     100% {
-		background-color: rgba(0,0,0,0);
-		color: black;
+		background-color: rgba(0,0,0,.1);
 	}
 }
 
