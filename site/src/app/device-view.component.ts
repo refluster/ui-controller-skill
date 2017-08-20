@@ -24,7 +24,10 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 
 	updateElem(id): void {
 		let e = (<HTMLElement>this._el.querySelector(id));
-		e.classList.toggle('change-animation');
+		e.classList.remove('change-animation');
+		setTimeout(() => {
+			e.classList.add('change-animation');
+		}, 30);
 	}
 
 	ngOnInit(): void {
@@ -36,7 +39,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 			if (data['tv'] != undefined) {
 				if (data['tv']['power'] != undefined) {
 					this.tv.power = data['tv']['power'];
-					this.updateElem('#tv.power');
+					this.updateElem('#tv-power');
 				}
 				if (data['tv']['input'] != undefined) {
 					this.tv.input = data['tv']['input'];
