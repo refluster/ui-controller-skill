@@ -99,15 +99,15 @@
 
 @keyframes change-animation {
     0% {
-		background-color: rgba(0,0,0,.5);
+		background-color: rgba(192,0,168,.5);
 		color: #fff;
 	}
     70% {
-		background-color: rgba(0,0,0,.1);
+		background-color: rgba(192,0,168,.1);
 		color: #fff;
 	}
     100% {
-		background-color: rgba(0,0,0,.1);
+		background-color: rgba(192,0,168,.1);
 	}
 }
 
