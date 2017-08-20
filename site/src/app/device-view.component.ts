@@ -22,6 +22,11 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 		this._el = el.nativeElement;
 	}
 
+	updateElem(id): void {
+		let e = (<HTMLElement>this._el.querySelector(id));
+		e.classList.toggle('change-animation');
+	}
+
 	ngOnInit(): void {
 		console.log('hoge');
 		this.websocketService.connect('hoge=hoge');
@@ -31,8 +36,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 			if (data['tv'] != undefined) {
 				if (data['tv']['power'] != undefined) {
 					this.tv.power = data['tv']['power'];
-					let e = (<HTMLElement>this._el.querySelector('#tv-power'));
-					e.classList.toggle('change-animation');
+					this.updateElem('#tv.power');
 				}
 				if (data['tv']['input'] != undefined) {
 					this.tv.input = data['tv']['input'];
