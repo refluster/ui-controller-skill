@@ -27,7 +27,7 @@ export class DeviceViewComponent implements OnInit, OnDestroy {
 		e.classList.remove('change-animation');
 		setTimeout(() => {
 			e.classList.add('change-animation');
-		}, 30);
+		}, 0);
 	}
 
 	ngOnInit(): void {
