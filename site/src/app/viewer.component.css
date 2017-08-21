@@ -68,22 +68,22 @@ div.page {
 }
 
 #month {
-	font-size: 90px;
+	font-size: 106px;
 	color: #fff;
 	position: absolute;
-	top: 110px;
-	left: 0px;
+	top: 104px;
+	left: 13px;
 	width: 100px;
 	text-align: center;
 	font-weight: 700;
 }
 
 #day {
-	font-size: 90px;
+	font-size: 106px;
 	color: #fff;
 	position: absolute;
-	top: 200px;
-	left: 0px;
+	top: 194px;
+	left: 13px;
 	width: 100px;
 	text-align: center;
 	font-weight: bold;
@@ -94,7 +94,7 @@ div.page {
 	color: #fff;
 	position: absolute;
 	top: 300px;
-	left: 0px;
+	left: 13px;
 	width: 100px;
 	text-align: center;
 	font-weight: bold;
