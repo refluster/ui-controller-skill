@@ -39,11 +39,24 @@ app.post('/devctrl', (req, res) => {
 		setTimeout(callback, delay*1000);
 	}
 
-	if (req.body.light2 != undefined) {
+	if (req.body.light != undefined) {
 		var r = req.body.light;
 		if (r.cmd == "on" || r.cmd == "off") {
 			sendCommandDelay(r.delay, () => {
 				var cmd = 'pcpf-stub/ctrl-light.sh ' + r.cmd;
+				console.log(cmd);
+				exec(cmd, (err, stdout, stderr) => {
+					if (err) { console.log(err); }
+					console.log(stdout);
+				});
+			});
+		}
+	}
+	if (req.body.light2 != undefined) {
+		var r = req.body.light2;
+		if (r.cmd == "on" || r.cmd == "off") {
+			sendCommandDelay(r.delay, () => {
+				var cmd = 'pcpf-stub/ctrl-light2.sh ' + r.cmd;
 				console.log(cmd);
 				exec(cmd, (err, stdout, stderr) => {
 					if (err) { console.log(err); }
