@@ -89,6 +89,18 @@ app.post('/devctrl', (req, res) => {
 	res.send('[devctrl]');
 });
 
+app.post('/scenectrl', (req, res) => {
+	console.log('scenectrl post');
+	console.log('req.body ', req.body);
+
+	if (req.body.scene != undefined) {
+		var s = req.body.scene;
+		console.log('scene:', s);
+	}
+	res.header("Content-Type", "application/json; charset=utf-8");
+	res.send('[scenectrl]');
+});
+
 app.post('/linepush', (req, res) => {
 	console.log('linepush post');
 	console.log(req.body);
