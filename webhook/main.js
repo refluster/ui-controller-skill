@@ -54,9 +54,9 @@ app.post('/devctrl', (req, res) => {
 	}
 	if (req.body.light2 != undefined) {
 		var r = req.body.light2;
-		if (r.cmd == "on" || r.cmd == "off") {
+		if (r.power == "on" || r.power == "off") {
 			sendCommandDelay(r.delay, () => {
-				var cmd = 'pcpf-stub/ctrl-light2.sh ' + r.cmd;
+				var cmd = 'pcpf-stub/ctrl-light2.sh ' + r.power;
 				console.log(cmd);
 				exec(cmd, (err, stdout, stderr) => {
 					if (err) { console.log(err); }
