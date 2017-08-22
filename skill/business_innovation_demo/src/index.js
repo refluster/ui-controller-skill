@@ -52,10 +52,11 @@ var handlers = {
 	},
 	'OkayIntent': function() {
 		console.log('============ Okay ===========');
-		httppost('52.198.86.179', 8100, '/devctrl', {recorder: {mode: 'play'}}, function() {
+		httppost('52.198.86.179', 8100, '/scenectrl', {scene: 'movie'}, function() {
 			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
 					  'setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
 		}.bind(this));
+
 		console.log('============ Okay End ===========');
 	},
 };
