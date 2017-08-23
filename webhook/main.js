@@ -93,9 +93,14 @@ app.post('/scenectrl', (req, res) => {
 	console.log('scenectrl post');
 	console.log('req.body ', req.body);
 
-	if (req.body.scene != undefined) {
-		var s = req.body.scene;
+	if (req.body.name != undefined) {
+		var s = req.body.name;
 		console.log('scene:', s);
+		switch (s) {
+		case 'theater':
+			eltPost('3', '99935', '00001', [0, 1, 2]);
+			break;
+		}
 	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[scenectrl]');
@@ -124,6 +129,16 @@ io.on('connection', (socket) => {
 		io.emit('emit_name', {data: data});
 	});
 });
+
+function eltPost(id, kikiCode, nodeId, paramList) {
+	let data = {
+		kikiCode: kikiCode,
+		nodeId: nodeId,
+		paramList: paramList
+	};
+	console.log('/' + id);
+	console.log(' ', data);
+}
 
 http.listen(port, (error) => {
 	if (error) {
