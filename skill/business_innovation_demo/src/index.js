@@ -23,7 +23,7 @@ var handlers = {
 		switch (device) {
 		case 'light':
 			httppost('52.198.86.179', 8100, '/devctrl', {light2: {power: ctrl, delay: 0}}, function() {
-				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the panel light. Any request?');
+				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the light. Any request?');
 			}.bind(this));
 			break;
 		case 'air conditioner':
