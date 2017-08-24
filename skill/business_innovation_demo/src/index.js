@@ -40,8 +40,8 @@ var handlers = {
 			httppost('52.198.86.179', 8100, '/devctrl',
 					 {tv: {power: ctrl, delay: 0}, recorder: {power: ctrl, delay: 0}},
 					 function() {
-						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder.' +
-								   'There are three titles.' +
+						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder. ' +
+								   'There are three titles. ' +
 								   'Since you are free until the 9 o\'clock, how about watching a movie?');
 					 }.bind(this));
 			break;
