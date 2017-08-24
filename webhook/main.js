@@ -59,7 +59,9 @@ app.post('/devctrl', (req, res) => {
 		var r = req.body.light2;
 		if (r.power == "on" || r.power == "off") {
 			sendCommandDelay(r.delay, () => {
-				eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['0']);
+				let paramList = [r.power == 'off' ? '0': '1'];
+				eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, paramList);
+
 				var cmd = 'pcpf-stub/ctrl-light2.sh ' + r.power;
 				console.log(cmd);
 				exec(cmd, (err, stdout, stderr) => {
@@ -104,7 +106,7 @@ app.post('/scenectrl', (req, res) => {
 		console.log('scene:', s);
 		switch (s) {
 		case 'theater':
-			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['0', '1', '2']);
+			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['0']);
 			setTimeout(function() {
 				eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0', '1', '2']);
 				setTimeout(function() {
