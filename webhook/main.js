@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const cors = require('cors');
+const request = require('request');
 const exec = require('child_process').exec;
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -149,6 +150,15 @@ function eltPost(id, kikiCode, nodeId, paramList) {
 	};
 	console.log('/' + id);
 	console.log(' ', data);
+
+	var options = {
+		uri: 'http://52.87.73.51:8100/' + id,
+		headers: {
+			"Content-type": "application/json",
+		},
+		json: data
+	};
+	request.post(options, function(error, response, body) {});
 }
 
 http.listen(port, (error) => {
