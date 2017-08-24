@@ -61,6 +61,7 @@ var handlers = {
 			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
 					  'Setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
 		}.bind(this));
+
 		console.log('============ Okay End ===========');
 	},
 };
