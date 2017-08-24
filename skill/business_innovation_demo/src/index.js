@@ -54,7 +54,7 @@ var handlers = {
 		console.log('============ Okay ===========');
 		httppost('52.198.86.179', 8100, '/scenectrl', {scene: 'theater'}, function() {
 			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
-					  'setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
+					  'Setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
 		}.bind(this));
 		console.log('============ Okay End ===========');
 	},
