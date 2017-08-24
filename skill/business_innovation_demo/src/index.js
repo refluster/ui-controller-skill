@@ -41,8 +41,8 @@ var handlers = {
 					 {tv: {power: ctrl, delay: 0}, recorder: {power: ctrl, delay: 0}},
 					 function() {
 						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder. ' +
-								   'There are three titles. ' +
-								   'Since you are free until the 9 o\'clock, how about watching a movie?');
+								   'There are 5 titles. ' +
+								   'Since you are free until the 3 o\'clock, how about watching the movie?');
 					 }.bind(this));
 			break;
 		default:
@@ -58,8 +58,7 @@ var handlers = {
 	'OkayIntent': function() {
 		console.log('============ Okay ===========');
 		httppost('52.198.86.179', 8100, '/scenectrl', {name: 'theater'}, function() {
-			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
-					  'Setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
+			this.emit(':tell', 'Okay. Setting the theater scene. Enjoy.');
 		}.bind(this));
 
 		console.log('============ Okay End ===========');
