@@ -159,13 +159,13 @@ div.page {
 	filter: progid:DXImageTransform.Microsoft.BasicImage(mirror=1);
 	fill: rgba(0,0,0,0);
 	stroke-width: 174;
-	stroke-dasharray: 546,0; /* 3.14 x stroke-width */
+	stroke-dasharray: 0,546; /* 3.14 x stroke-width */
 	stroke: #000;
 	animation-name: pie;
 	animation: pie 300s linear 0s forwards;
 }
 @keyframes pie {
-	100% { stroke-dasharray: 0,546}
+	100% { stroke-dasharray: 546,0}
 }
 
 .fadeIn {

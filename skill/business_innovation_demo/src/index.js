@@ -21,9 +21,14 @@ var handlers = {
 		console.log(' ctrl : ' + ctrl);
 		console.log(' device : ' + device);
 		switch (device) {
-		case 'panel light':
-			httppost('52.198.86.179', 8100, '/devctrl', {light2: {cmd: ctrl, delay: 0}}, function() {
+		case 'light':
+			httppost('52.198.86.179', 8100, '/devctrl', {light2: {power: ctrl, delay: 0}}, function() {
 				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the panel light. Any request?');
+			}.bind(this));
+			break;
+		case 'air conditioner':
+			httppost('52.198.86.179', 8100, '/devctrl', {ac: {power: ctrl, delay: 0}}, function() {
+				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the air conditioner. Any request?');
 			}.bind(this));
 			break;
 		case 'tv':
@@ -35,13 +40,13 @@ var handlers = {
 			httppost('52.198.86.179', 8100, '/devctrl',
 					 {tv: {power: ctrl, delay: 0}, recorder: {power: ctrl, delay: 0}},
 					 function() {
-						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder.' +
-								   'There are three titles.' +
+						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder. ' +
+								   'There are three titles. ' +
 								   'Since you are free until the 9 o\'clock, how about watching a movie?');
 					 }.bind(this));
 			break;
 		default:
-			this.emit(':tell', 'Unknown device. Good bye.');
+			this.emit(':ask', 'Unknown device. Any request?');
 		}
 		console.log('===== Control Device end');
 	},
@@ -52,9 +57,9 @@ var handlers = {
 	},
 	'OkayIntent': function() {
 		console.log('============ Okay ===========');
-		httppost('52.198.86.179', 8100, '/scenectrl', {scene: 'movie'}, function() {
+		httppost('52.198.86.179', 8100, '/scenectrl', {name: 'theater'}, function() {
 			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
-					  'setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
+					  'Setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
 		}.bind(this));
 
 		console.log('============ Okay End ===========');

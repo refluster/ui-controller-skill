@@ -40,6 +40,14 @@
   </div>
 </div>
 <div>
+  <h4>light2</h4>
+  <div class="grid">
+    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({light2: {power: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+</div>
+<div>
   <h4>shutter</h4>
   <div class="grid">
     <a *ngFor="let c of ['open', 'close']" (click)="devctrl({shutter: {status: c}})" class="button">

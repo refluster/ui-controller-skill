@@ -1,10 +1,12 @@
 'use strict';
+const conf = require('./conf.js')
 const express = require('express')
 const app = new (express)();
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const cors = require('cors');
+const request = require('request');
 const exec = require('child_process').exec;
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -40,6 +42,7 @@ app.post('/devctrl', (req, res) => {
 	}
 
 	if (req.body.light != undefined) {
+		// light for design center
 		var r = req.body.light;
 		if (r.cmd == "on" || r.cmd == "off") {
 			sendCommandDelay(r.delay, () => {
@@ -56,6 +59,9 @@ app.post('/devctrl', (req, res) => {
 		var r = req.body.light2;
 		if (r.power == "on" || r.power == "off") {
 			sendCommandDelay(r.delay, () => {
+				let paramList = [r.power == 'off' ? '0': '1'];
+				eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, paramList);
+
 				var cmd = 'pcpf-stub/ctrl-light2.sh ' + r.power;
 				console.log(cmd);
 				exec(cmd, (err, stdout, stderr) => {
@@ -76,11 +82,13 @@ app.post('/devctrl', (req, res) => {
 		io.emit('device-view', {devctrl: {recorder: r}});
 	}
 	if (req.body.ac != undefined) {
+		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0','1','27','0','6']);
 		var r = req.body.ac;
 		console.log({devctrl: {ac: r}});
 		io.emit('device-view', {devctrl: {ac: r}});
 	}
 	if (req.body.shutter != undefined) {
+		eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, ['2']);
 		var r = req.body.shutter;
 		console.log({devctrl: {shutter: r}});
 		io.emit('device-view', {devctrl: {shutter: r}});
@@ -93,9 +101,28 @@ app.post('/scenectrl', (req, res) => {
 	console.log('scenectrl post');
 	console.log('req.body ', req.body);
 
-	if (req.body.scene != undefined) {
-		var s = req.body.scene;
+	if (req.body.name != undefined) {
+		var s = req.body.name;
 		console.log('scene:', s);
+		switch (s) {
+		case 'theater':
+			io.emit('device-view', {devctrl: {shutter: {status: 'close'}}});
+			io.emit('device-view', {devctrl: {light: {scene: 'theater'}}});
+			io.emit('device-view', {devctrl: {ac: {power: 'on', temp: '27'}}});
+
+			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['3']);
+			exec('pcpf-stub/ctrl-light2.sh off', (err, stdout, stderr) => {
+				if (err) { console.log(err); }
+				console.log(stdout);
+			});
+			setTimeout(function() {
+				eltPost(conf.dev.ac[1].id, conf.kikiCode, conf.dev.ac[1].nodeId, ['0','1','27','0','6','120']);
+				setTimeout(function() {
+					eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, ['2']);
+				}.bind(this), 8000);
+			}.bind(this), 8000);
+			break;
+		}
 	}
 	res.header("Content-Type", "application/json; charset=utf-8");
 	res.send('[scenectrl]');
@@ -124,6 +151,25 @@ io.on('connection', (socket) => {
 		io.emit('emit_name', {data: data});
 	});
 });
+
+function eltPost(id, kikiCode, nodeId, paramList) {
+	let data = {
+		kikiCode: kikiCode,
+		nodeId: nodeId,
+		paramList: paramList
+	};
+	console.log('/' + id);
+	console.log(' ', data);
+
+	var options = {
+		uri: 'http://52.87.73.51:8100/action/' + id,
+		headers: {
+			"Content-type": "application/json",
+		},
+		json: data
+	};
+	request.post(options, function(error, response, body) {});
+}
 
 http.listen(port, (error) => {
 	if (error) {
