@@ -106,7 +106,11 @@ app.post('/scenectrl', (req, res) => {
 		console.log('scene:', s);
 		switch (s) {
 		case 'theater':
-			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['0']);
+			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['3']);
+			exec('pcpf-stub/ctrl-light2.sh off', (err, stdout, stderr) => {
+				if (err) { console.log(err); }
+				console.log(stdout);
+			});
 			setTimeout(function() {
 				eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0', '1', '2']);
 				setTimeout(function() {
