@@ -26,6 +26,11 @@ var handlers = {
 				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the panel light. Any request?');
 			}.bind(this));
 			break;
+		case 'air conditioner':
+			httppost('52.198.86.179', 8100, '/devctrl', {ac: {power: ctrl, delay: 0}}, function() {
+				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the air conditioner. Any request?');
+			}.bind(this));
+			break;
 		case 'tv':
 			httppost('52.198.86.179', 8100, '/devctrl', {tv: {power: ctrl, delay: 0}}, function() {
 				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the tv. Any request?');
@@ -52,7 +57,7 @@ var handlers = {
 	},
 	'OkayIntent': function() {
 		console.log('============ Okay ===========');
-		httppost('52.198.86.179', 8100, '/scenectrl', {scene: 'theater'}, function() {
+		httppost('52.198.86.179', 8100, '/scenectrl', {name: 'theater'}, function() {
 			this.emit(':tell', 'Okay. <prosody rate="x-slow"><amazon:effect name="whispered">' +
 					  'Setting the scene for horror movies. Enjoy.</amazon:effect></prosody>');
 		}.bind(this));
