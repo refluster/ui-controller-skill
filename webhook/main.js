@@ -106,6 +106,10 @@ app.post('/scenectrl', (req, res) => {
 		console.log('scene:', s);
 		switch (s) {
 		case 'theater':
+			io.emit('device-view', {devctrl: {shutter: {status: 'close'}}});
+			io.emit('device-view', {devctrl: {light: {scene: 'theater'}}});
+			io.emit('device-view', {devctrl: {ac: {power: 'on', temp: '27'}}});
+
 			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['3']);
 			exec('pcpf-stub/ctrl-light2.sh off', (err, stdout, stderr) => {
 				if (err) { console.log(err); }
