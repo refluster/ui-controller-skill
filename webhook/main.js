@@ -112,11 +112,11 @@ app.post('/scenectrl', (req, res) => {
 				console.log(stdout);
 			});
 			setTimeout(function() {
-				eltPost(conf.dev.ac[1].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0','1','27','0','6','120']);
+				eltPost(conf.dev.ac[1].id, conf.kikiCode, conf.dev.ac[1].nodeId, ['0','1','27','0','6','120']);
 				setTimeout(function() {
 					eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, ['2']);
-				}.bind(this), 5000);
-			}.bind(this), 5000);
+				}.bind(this), 8000);
+			}.bind(this), 8000);
 			break;
 		}
 	}
