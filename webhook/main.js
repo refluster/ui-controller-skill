@@ -59,7 +59,7 @@ app.post('/devctrl', (req, res) => {
 		var r = req.body.light2;
 		if (r.power == "on" || r.power == "off") {
 			sendCommandDelay(r.delay, () => {
-				eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ["0"]);
+				eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['0']);
 				var cmd = 'pcpf-stub/ctrl-light2.sh ' + r.power;
 				console.log(cmd);
 				exec(cmd, (err, stdout, stderr) => {
@@ -80,13 +80,13 @@ app.post('/devctrl', (req, res) => {
 		io.emit('device-view', {devctrl: {recorder: r}});
 	}
 	if (req.body.ac != undefined) {
-		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, [0,1,27,0,6]);
+		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0','1','27','0','6']);
 		var r = req.body.ac;
 		console.log({devctrl: {ac: r}});
 		io.emit('device-view', {devctrl: {ac: r}});
 	}
 	if (req.body.shutter != undefined) {
-		eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, [2]);
+		eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, ['2']);
 		var r = req.body.shutter;
 		console.log({devctrl: {shutter: r}});
 		io.emit('device-view', {devctrl: {shutter: r}});
@@ -104,11 +104,11 @@ app.post('/scenectrl', (req, res) => {
 		console.log('scene:', s);
 		switch (s) {
 		case 'theater':
-			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, [0, 1, 2]);
+			eltPost(conf.dev.light[0].id, conf.kikiCode, conf.dev.light[0].nodeId, ['0', '1', '2']);
 			setTimeout(function() {
-				eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, [0, 1, 2]);
+				eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0', '1', '2']);
 				setTimeout(function() {
-					eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, [0, 1, 2]);
+					eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, ['0', '1', '2']);
 				}.bind(this), 5000);
 			}.bind(this), 5000);
 			break;
