@@ -12,7 +12,7 @@ div.page {
 }
 
 .flip {
-	transform:matrix(-1, 0, 0, 1, 0, 0);
+	transform:matrix(-1, 0, 0, -1, 0, 0);
 	filter: progid:DXImageTransform.Microsoft.BasicImage(mirror=1);
 }
 
