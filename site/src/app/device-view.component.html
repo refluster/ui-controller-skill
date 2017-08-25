@@ -7,13 +7,23 @@
         </div>
         <div *ngIf="tv.input == 'rec' && recorder.power == 'on'" class="rec">
           <div *ngIf="recorder.mode == 'list'" class="list">
-            <div class="title">saved titles</div>
+            <div class="title">recorder</div>
             <ul class="list-group">
-              <li class="list-group-item">ドラマ1</li>
-              <li class="list-group-item">ドラマ2</li>
-              <li class="list-group-item">ドラマ3</li>
-              <li class="list-group-item">ドラマ4</li>
-              <li class="list-group-item">映画</li>
+              <li class="list-group-item rec-item">
+                <div class="name">ニュース</div>
+                <div class="period">30m</div></li>
+              <li class="list-group-item rec-item">
+                <div class="name">ドラマA</div>
+                <div class="period">1h</div></li>
+              <li class="list-group-item rec-item">
+                <div class="name">ドラマB</div>
+                <div class="period">1h</div></li>
+              <li class="list-group-item rec-item">
+                <div class="name">ドラマC</div>
+                <div class="period">1h</div></li>
+              <li class="list-group-item rec-item">
+                <div class="name">映画</div>
+                <div class="period">2h</div></li>
             </ul>
           </div>
           <div *ngIf="recorder.mode == 'play'" class="ch">
