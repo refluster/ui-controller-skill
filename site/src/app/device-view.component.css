@@ -111,3 +111,19 @@
 	}
 }
 
+.rec-item {
+	height: 38px;
+	position: relative;
+}
+
+.rec-item .name {
+	position: absolute;
+	left: 30px;
+}
+
+.rec-item .period {
+	position: absolute;
+	top: 16px;
+	right: 30px;
+	color: #aaa;
+}
