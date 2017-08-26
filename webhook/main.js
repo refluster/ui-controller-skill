@@ -120,7 +120,7 @@ app.post('/scenectrl', (req, res) => {
 				setTimeout(function() {
 					eltPost(conf.dev.shutter[0].id, conf.kikiCode, conf.dev.shutter[0].nodeId, ['2']);
 				}.bind(this), 8000);
-			}.bind(this), 8000);
+			}.bind(this), 5000);
 			break;
 		}
 	}
