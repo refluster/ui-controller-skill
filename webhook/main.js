@@ -82,8 +82,8 @@ app.post('/devctrl', (req, res) => {
 		io.emit('device-view', {devctrl: {recorder: r}});
 	}
 	if (req.body.ac != undefined) {
-		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0','1','27','0','6']);
 		var r = req.body.ac;
+		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0','1','27','0','6']);
 		console.log({devctrl: {ac: r}});
 		io.emit('device-view', {devctrl: {ac: r}});
 	}
