@@ -83,7 +83,10 @@ app.post('/devctrl', (req, res) => {
 	}
 	if (req.body.ac != undefined) {
 		var r = req.body.ac;
-		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, ['0','1','27','0','6']);
+		let paramList = [
+			r.power == 'on'? '0': '1',
+			'1','27','0','6'];
+		eltPost(conf.dev.ac[0].id, conf.kikiCode, conf.dev.ac[0].nodeId, paramList);
 		console.log({devctrl: {ac: r}});
 		io.emit('device-view', {devctrl: {ac: r}});
 	}
