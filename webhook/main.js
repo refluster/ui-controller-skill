@@ -69,6 +69,7 @@ app.post('/devctrl', (req, res) => {
 					console.log(stdout);
 				});
 			});
+			io.emit('device-view', {devctrl: {light: {scene: r.power}}});
 		}
 	}
 	if (req.body.tv != undefined) {
