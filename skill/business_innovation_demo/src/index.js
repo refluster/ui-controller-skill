@@ -38,7 +38,7 @@ var handlers = {
 			break;
 		case 'recorder':
 			httppost('52.198.86.179', 8100, '/devctrl',
-					 {tv: {power: ctrl, delay: 0}, recorder: {power: ctrl, delay: 0}},
+					 {tv: {power: ctrl, delay: 0, input: 'rec'}, recorder: {power: ctrl, delay: 0, mode: 'list'}},
 					 function() {
 						 this.emit(':ask', 'Okay. Turning ' + ctrl + ' the recorder. ' +
 								   'There are 5 titles. ' +
