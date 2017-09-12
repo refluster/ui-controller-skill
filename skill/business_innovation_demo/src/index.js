@@ -11,29 +11,52 @@ exports.handler = function(event, context, callback) {
 var handlers = {
 	'LaunchRequest': function () {
 		console.log('============ [initial] ===========');
+		countUp.call(this);
 		this.emit(':ask', 'This is home agent skill. May I help you?');
 		console.log('===== [initial] end');
 	},
 	'ControlDeviceIntent': function() {
+		console.log('============ Control Device ===========');
 		let ctrl = this.event.request.intent.slots.ctrl.value;
 		let device = this.event.request.intent.slots.device.value.toLowerCase();
-		console.log('============ Control Device ===========');
+		countUp.call(this);
 		console.log(' ctrl : ' + ctrl);
 		console.log(' device : ' + device);
+
+		console.log('=== attributes ==== ');
+		let k = Object.keys(this.attributes);
+		for (var i = 0; i < k.length; i++) {
+			let key = k[i];
+			console.log(' -- key ' + key + ' : ' + this.attributes[key]);
+		}
+		console.log('=== attributes.end ==== ');
+
 		switch (device) {
 		case 'light':
 			httppost('52.198.86.179', 8100, '/devctrl', {light2: {power: ctrl, delay: 0}}, function() {
-				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the light. Any request?');
+				if (this.attributes.count !== 0) {
+					this.emit(':ask', 'Okay. Turning ' + ctrl + ' the light. Any request?');
+				} else {
+					this.emit(':tell', 'Okay. Turning ' + ctrl + ' the light.');
+				}
 			}.bind(this));
 			break;
 		case 'air conditioner':
 			httppost('52.198.86.179', 8100, '/devctrl', {ac: {power: ctrl, delay: 0}}, function() {
-				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the air conditioner. Any request?');
+				if (this.attributes.count !== 0) {
+					this.emit(':ask', 'Okay. Turning ' + ctrl + ' the air conditioner. Any request?');
+				} else {
+					this.emit(':tell', 'Okay. Turning ' + ctrl + ' the air conditioner.');
+				}
 			}.bind(this));
 			break;
 		case 'tv':
 			httppost('52.198.86.179', 8100, '/devctrl', {tv: {power: ctrl, delay: 0}}, function() {
-				this.emit(':ask', 'Okay. Turning ' + ctrl + ' the tv. Any request?');
+				if (this.attributes.count !== 0) {
+					this.emit(':ask', 'Okay. Turning ' + ctrl + ' the tv. Any request?');
+				} else {
+					this.emit(':tell', 'Okay. Turning ' + ctrl + ' the tv.');
+				}
 			}.bind(this));
 			break;
 		case 'recorder':
@@ -48,12 +71,14 @@ var handlers = {
 		default:
 			this.emit(':ask', 'Unknown device. Any request?');
 		}
+
 		console.log('===== Control Device end');
 	},
 	'StopIntent': function() {
 		console.log('============ Stop ===========');
 		this.emit(':tell', 'Okay. Good bye.');
 		console.log('============ Stop End ===========');
+		delete this.attributes.count;
 	},
 	'OkayIntent': function() {
 		console.log('============ Okay ===========');
@@ -63,6 +88,9 @@ var handlers = {
 
 		console.log('============ Okay End ===========');
 	},
+	'Unhandled': function() {
+		this.emit(':ask', 'Sorry, I didn\'t get that. Try saying again?', 'Try saying a number.');
+	}
 };
 
 function httppost(host, port, path, data, callback) {
@@ -92,4 +120,12 @@ function httppost(host, port, path, data, callback) {
 	});
 	req.write(postDataStr);
 	req.end();
+}
+
+function countUp() {
+	if (this.attributes.count === undefined) {
+		this.attributes.count = 0;
+	} else {
+		this.attributes.count++;
+	}
 }
