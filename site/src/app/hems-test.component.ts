@@ -40,11 +40,15 @@ export class HemsTestComponent {
 	}
 
 	doorOpenTest() {
+		var b = false;
+
 		function handleMotion(e) {
+			if (b === true) { return; }
 			if (Math.abs(e.acceleration.x) > .5 ||
 				Math.abs(e.acceleration.y) > .5 ||
 				Math.abs(e.acceleration.z) > .5) {
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
+				b = true;
 				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
 				this.devctrl({light2: {power: 'on'}});
 			}
@@ -62,9 +66,7 @@ export class HemsTestComponent {
 		var b = false;
 
 		function handleMotion(e) {
-			if (b === true) {
-				return;
-			}
+			if (b === true) { return; }
 			if (Math.abs(e.acceleration.x) > .5 ||
 				Math.abs(e.acceleration.y) > .5 ||
 				Math.abs(e.acceleration.z) > .5) {
