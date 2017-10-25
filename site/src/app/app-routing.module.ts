@@ -4,6 +4,7 @@ import { ViewerComponent } from './viewer.component';
 import { ControllerComponent } from './controller.component';
 import { DeviceViewComponent } from './device-view.component';
 import { DeviceControllerComponent } from './device-controller.component';
+import { HemsTestComponent } from './hems-test.component';
 
 const routes: Routes = [
 	{
@@ -18,6 +19,9 @@ const routes: Routes = [
 	}, {
 		path: 'device-controller',
 		component: DeviceControllerComponent
+	}, {
+		path: 'hems-test',
+		component: HemsTestComponent
 	}, {
 		path: '',
 		redirectTo: '/viewer',

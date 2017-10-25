@@ -8,6 +8,7 @@ import { ViewerComponent } from './viewer.component';
 import { ControllerComponent } from './controller.component';
 import { DeviceViewComponent } from './device-view.component';
 import { DeviceControllerComponent } from './device-controller.component';
+import { HemsTestComponent } from './hems-test.component';
 import { WebsocketService } from './websocket.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './app-routing.module';
 		ControllerComponent,
 		DeviceViewComponent,
 		DeviceControllerComponent,
+		HemsTestComponent,
 	],
 	imports: [
 		BrowserModule,

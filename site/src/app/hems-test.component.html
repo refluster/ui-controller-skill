@@ -1,0 +1,64 @@
+<h3>controller</h3>
+<div>
+  <h4>tv</h4>
+  <div class="grid">
+    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({tv: {power: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+  <div class="grid">
+    <a *ngFor="let c of tvChannels" (click)="devctrl({tv: {input: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+</div>
+<div>
+  <h4>recorder</h4>
+  <div class="grid">
+    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({recorder: {power: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+  <div class="grid">
+    <a *ngFor="let c of ['list', 'play']" (click)="devctrl({recorder: {mode: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+</div>
+<div>
+  <h4>air conditioner</h4>
+  <div class="grid">
+    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({ac: {power: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+  <div class="grid">
+    <a *ngFor="let c of ['22','23','24','24','25','26','27','28']"
+       (click)="devctrl({ac: {temp: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+</div>
+<div>
+  <h4>light2</h4>
+  <div class="grid">
+    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({light2: {power: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+</div>
+<div>
+  <h4>shutter</h4>
+  <div class="grid">
+    <a *ngFor="let c of ['open', 'close']" (click)="devctrl({shutter: {status: c}})" class="button">
+      {{c}}
+    </a>
+  </div>
+</div>
+<div>
+  <h4>test</h4>
+  <div class="grid">
+    <a (click)="test()" class="button">test button</a>
+    <div id="test-div"></div>
+  </div>
+</div>
