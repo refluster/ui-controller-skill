@@ -36,7 +36,7 @@ export class HemsTestComponent {
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
 				el.innerHTML = 'hoge';
 				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
-				devctrl({light2: {power: 'on'}});
+				this.devctrl({light2: {power: 'on'}});
 			}
 		}
 
