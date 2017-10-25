@@ -57,9 +57,50 @@ export class HemsTestComponent {
 		window.addEventListener("devicemotion", handleMotion.bind(this), true);
 	}
 
+	leavingHomeTest() {
+		var b = false;
+
+		function handleMotion(e) {
+			if (b === true) { return; }
+			if (Math.abs(e.acceleration.x) > .5 ||
+				Math.abs(e.acceleration.y) > .5 ||
+				Math.abs(e.acceleration.z) > .5) {
+				let el = (<HTMLElement>this._el.querySelector('#test-div'));
+				b = true;
+				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
+				this.devctrl({light2: {power: 'off'}});
+			}
+		}
+
+		window.addEventListener("devicemotion", handleMotion.bind(this), true);
+	}
+
 	windowNotify() {
 		let data = {"title": "スマートHEMS",
 					"body": "窓を閉め忘れていませんか？",
+					"icon": "http://news.panasonic.com/jp/topics/items/NRR2015139937_1.png",
+					"url": "http://push7.jp/",
+					"apikey": "408b1365c3b94d98bc6dfe7cb54055e5"};
+		var b = false;
+
+		function handleMotion(e) {
+			if (b === true) { return; }
+			if (Math.abs(e.acceleration.x) > .5 ||
+				Math.abs(e.acceleration.y) > .5 ||
+				Math.abs(e.acceleration.z) > .5) {
+				b = true;
+				let el = (<HTMLElement>this._el.querySelector('#test-div'));
+				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
+				this.push(data);
+			}
+		}
+		
+		window.addEventListener("devicemotion", handleMotion.bind(this), true);
+	}
+
+	pollenNotify() {
+		let data = {"title": "スマートHEMS",
+					"body": "今日は花粉が多いので早く閉めましょう。",
 					"icon": "http://news.panasonic.com/jp/topics/items/NRR2015139937_1.png",
 					"url": "http://push7.jp/",
 					"apikey": "408b1365c3b94d98bc6dfe7cb54055e5"};
