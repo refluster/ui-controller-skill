@@ -32,7 +32,9 @@ export class HemsTestComponent {
 
 	test() {
 		function handleMotion(e) {
-			if (e.acceleration.z > 1.0) {
+			if (Math.abs(e.acceleration.x) > .5 ||
+				Math.abs(e.acceleration.y) > .5 ||
+				Math.abs(e.acceleration.z) > .5) {
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
 				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
 				this.devctrl({light2: {power: 'on'}});
