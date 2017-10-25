@@ -35,8 +35,8 @@ export class HemsTestComponent {
 			if (e.acceleration.x > 3.0) {
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
 				el.innerHTML = 'hoge';
-				console.log(e.acceleration.x);
-				console.log(e);
+				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
+				devctrl({light2: {power: 'on'}});
 			}
 		}
 
