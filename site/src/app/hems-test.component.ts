@@ -154,9 +154,9 @@ export class HemsTestComponent {
 
 		function handleMotion(e) {
 			if (b === true) { return; }
-			if (Math.abs(e.acceleration.x) > .5 ||
-				Math.abs(e.acceleration.y) > .5 ||
-				Math.abs(e.acceleration.z) > .5) {
+			if (Math.abs(e.acceleration.x) > 1 ||
+				Math.abs(e.acceleration.y) > 1 ||
+				Math.abs(e.acceleration.z) > 1) {
 				b = true;
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
 				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
