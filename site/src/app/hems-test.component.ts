@@ -30,7 +30,16 @@ export class HemsTestComponent {
 			.catch(this.handleError);
 	}
 
-	test() {
+	push() {
+		return this.http.post('https://api.push7.jp/api/v1/208062aac0394d13a3d454c445deb84d/send',
+							  '{"title": "notification_title",  "body": "notifaction_body",  "icon": "https://push7.jp/notifycation_icon.png",  "url": "http://push7.jp/",  "apikey": "408b1365c3b94d98bc6dfe7cb54055e5"}',
+							  {headers: this.headers})
+			.toPromise()
+			.then(() => {})
+			.catch(this.handleError);
+	}
+
+	doorOpenTest() {
 		function handleMotion(e) {
 			if (Math.abs(e.acceleration.x) > .5 ||
 				Math.abs(e.acceleration.y) > .5 ||
@@ -42,5 +51,9 @@ export class HemsTestComponent {
 		}
 
 		window.addEventListener("devicemotion", handleMotion.bind(this), true);
+	}
+
+	test() {
+		this.push();
 	}
 }
