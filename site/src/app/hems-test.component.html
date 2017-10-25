@@ -1,31 +1,5 @@
 <h3>controller</h3>
 <div>
-  <h4>tv</h4>
-  <div class="grid">
-    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({tv: {power: c}})" class="button">
-      {{c}}
-    </a>
-  </div>
-  <div class="grid">
-    <a *ngFor="let c of tvChannels" (click)="devctrl({tv: {input: c}})" class="button">
-      {{c}}
-    </a>
-  </div>
-</div>
-<div>
-  <h4>recorder</h4>
-  <div class="grid">
-    <a *ngFor="let c of ['on', 'off']" (click)="devctrl({recorder: {power: c}})" class="button">
-      {{c}}
-    </a>
-  </div>
-  <div class="grid">
-    <a *ngFor="let c of ['list', 'play']" (click)="devctrl({recorder: {mode: c}})" class="button">
-      {{c}}
-    </a>
-  </div>
-</div>
-<div>
   <h4>air conditioner</h4>
   <div class="grid">
     <a *ngFor="let c of ['on', 'off']" (click)="devctrl({ac: {power: c}})" class="button">
@@ -40,7 +14,7 @@
   </div>
 </div>
 <div>
-  <h4>light2</h4>
+  <h4>light</h4>
   <div class="grid">
     <a *ngFor="let c of ['on', 'off']" (click)="devctrl({light2: {power: c}})" class="button">
       {{c}}
