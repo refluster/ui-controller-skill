@@ -143,4 +143,27 @@ export class HemsTestComponent {
 		
 		window.addEventListener("devicemotion", handleMotion.bind(this), true);
 	}
+
+	deskNotify() {
+		let data = {"title": "スマートHEMS",
+					"body": "お子さんの机が開けられました。",
+					"icon": "http://news.panasonic.com/jp/topics/items/NRR2015139937_1.png",
+					"url": "http://push7.jp/",
+					"apikey": "408b1365c3b94d98bc6dfe7cb54055e5"};
+		var b = false;
+
+		function handleMotion(e) {
+			if (b === true) { return; }
+			if (Math.abs(e.acceleration.x) > .5 ||
+				Math.abs(e.acceleration.y) > .5 ||
+				Math.abs(e.acceleration.z) > .5) {
+				b = true;
+				let el = (<HTMLElement>this._el.querySelector('#test-div'));
+				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
+				this.push(data);
+			}
+		}
+		
+		window.addEventListener("devicemotion", handleMotion.bind(this), true);
+	}
 }
