@@ -30,9 +30,9 @@ export class HemsTestComponent {
 			.catch(this.handleError);
 	}
 
-	push() {
+	push(data) {
 		return this.http.post('https://api.push7.jp/api/v1/208062aac0394d13a3d454c445deb84d/send',
-							  '{"title": "スマートHEMS",  "body": "窓を閉め忘れていませんか？",  "icon": "http://news.panasonic.com/jp/topics/items/NRR2015139937_1.pnghttp://is4.mzstatic.com/image/thumb/Purple118/v4/6e/f4/e5/6ef4e5fb-47dc-5c26-0a8b-67715f0f67ca/source/1200x630bb.jpg",  "url": "http://push7.jp/",  "apikey": "408b1365c3b94d98bc6dfe7cb54055e5"}',
+							  data,
 							  {headers: this.headers})
 			.toPromise()
 			.then(() => {})
@@ -54,16 +54,16 @@ export class HemsTestComponent {
 	}
 
 	windowNotify() {
+		let data = '{"title": "スマートHEMS",  "body": "窓を閉め忘れていませんか？",  "icon": "http://news.panasonic.com/jp/topics/items/NRR2015139937_1.png",  "url": "http://push7.jp/",  "apikey": "408b1365c3b94d98bc6dfe7cb54055e5"}';
+
 		function handleMotion(e) {
 			if (Math.abs(e.acceleration.x) > .5 ||
 				Math.abs(e.acceleration.y) > .5 ||
 				Math.abs(e.acceleration.z) > .5) {
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
 				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
-				this.push();
+				this.push(data);
 			}
 		}
-		window.addEventListener("devicemotion", handleMotion.bind(this), true);
 	}
-
 }
