@@ -34,7 +34,6 @@ export class HemsTestComponent {
 		function handleMotion(e) {
 			if (e.acceleration.x > 3.0) {
 				let el = (<HTMLElement>this._el.querySelector('#test-div'));
-				el.innerHTML = 'hoge';
 				window.removeEventListener("devicemotion", handleMotion.bind(this), true);
 				this.devctrl({light2: {power: 'on'}});
 			}
