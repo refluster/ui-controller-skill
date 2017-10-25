@@ -69,5 +69,6 @@ export class HemsTestComponent {
 				this.push(data);
 			}
 		}
+		window.addEventListener("devicemotion", handleMotion.bind(this), true);
 	}
 }
